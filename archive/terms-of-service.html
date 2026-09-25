@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Terms of Service — Unlistd Life</title>
+<meta content="Terms of Service for Unlistd Life — India's invite-only offbeat travel community. Read before you book." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=DM+Mono:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --black:     #080807;
+  --black2:    #0e0e0c;
+  --black3:    #141410;
+  --black4:    #1a1a16;
+  --border:    rgba(255,255,255,0.055);
+  --border2:   rgba(255,255,255,0.10);
+  --gold:      #c9a063;
+  --gold-dim:  #7a5e35;
+  --gold-pale: rgba(201,160,99,0.07);
+  --text:      #e8e4db;
+  --body-text: #bfbbB3;
+  --muted:     #5a5750;
+  --muted2:    #8a8680;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --mono:      'DM Mono', monospace;
+  --sans:      'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+/* GRAIN */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.026;
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 18px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(8,8,7,0.90);
+  backdrop-filter: blur(14px);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-logo { text-decoration: none; display: block; line-height: 0; }
+.nav-logo img { width: 110px; height: auto; display: block; opacity: 0.9; transition: opacity 0.2s; }
+.nav-logo img:hover { opacity: 1; }
+
+.nav-right { display: flex; align-items: center; gap: 32px; }
+.nav-policy-links { display: flex; gap: 24px; list-style: none; }
+.nav-policy-links a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-policy-links a:hover { color: var(--gold); }
+.nav-policy-links a.active { color: var(--gold-dim); }
+.nav-back {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  transition: color 0.2s; white-space: nowrap;
+  padding: 8px 16px; border: 0.5px solid var(--border2); border-radius: 2px;
+}
+.nav-back:hover { color: var(--gold); border-color: var(--gold-dim); }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  padding: 140px 48px 72px;
+  border-bottom: 0.5px solid var(--border);
+  position: relative; overflow: hidden;
+  max-width: 1100px; margin: 0 auto;
+}
+.hero-eye {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gold-dim);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+}
+.hero-eye::before { content: ''; width: 28px; height: 0.5px; background: var(--gold-dim); }
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 300; line-height: 1.08; letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); max-width: 520px;
+  line-height: 1.7;
+}
+.hero-meta {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  margin-top: 36px; padding-top: 36px;
+  border-top: 0.5px solid var(--border);
+}
+.hm { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+.hm-label { color: var(--muted); margin-bottom: 5px; }
+.hm-val { color: var(--gold-dim); }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.page { max-width: 1100px; margin: 0 auto; padding: 0 48px 100px; }
+
+/* ═══════════════════════════════════════════
+   SECTION
+═══════════════════════════════════════════ */
+.doc-section {
+  padding: 64px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+.doc-section:last-of-type { border-bottom: none; }
+
+.sec-num {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gold-dim);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+}
+.sec-num::before { content: ''; display: block; width: 18px; height: 0.5px; background: var(--gold-dim); }
+
+.sec-heading {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 300; font-style: italic;
+  color: var(--text); margin-bottom: 36px; line-height: 1.15;
+}
+.sec-heading span { color: var(--gold); font-style: normal; }
+
+/* ═══════════════════════════════════════════
+   CLAUSE
+═══════════════════════════════════════════ */
+.clause {
+  display: flex; gap: 20px;
+  margin-bottom: 24px; align-items: flex-start;
+}
+.clause-num {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.10em;
+  color: var(--gold-dim); flex-shrink: 0; padding-top: 4px; min-width: 30px;
+}
+.clause-text {
+  font-size: 14.5px; color: var(--body-text); line-height: 1.85;
+}
+.clause-text strong { color: var(--text); font-weight: 400; }
+.clause-text a {
+  color: var(--gold-dim); text-decoration: none;
+  border-bottom: 0.5px solid rgba(201,160,99,0.3);
+}
+.clause-text a:hover { color: var(--gold); }
+
+/* ═══════════════════════════════════════════
+   DEFINITION LIST
+═══════════════════════════════════════════ */
+.def-list { display: flex; flex-direction: column; }
+.def-item {
+  display: grid; grid-template-columns: 180px 1fr; gap: 24px;
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+.def-item:first-child { border-top: 0.5px solid var(--border); }
+.def-term {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold-dim); padding-top: 3px;
+}
+.def-desc { font-size: 14px; color: var(--body-text); line-height: 1.8; }
+
+/* ═══════════════════════════════════════════
+   HIGHLIGHT BOX
+═══════════════════════════════════════════ */
+.highlight-box {
+  background: var(--black2);
+  border: 0.5px solid var(--border2);
+  border-left: 2px solid var(--gold-dim);
+  border-radius: 3px; padding: 20px 24px; margin: 24px 0;
+}
+.highlight-box p { font-size: 14px; color: var(--body-text); line-height: 1.85; }
+.highlight-box p strong { color: var(--text); font-weight: 400; }
+
+/* ═══════════════════════════════════════════
+   ALERT BOX (for expulsion/important clause)
+═══════════════════════════════════════════ */
+.alert-box {
+  background: rgba(201, 160, 99, 0.05);
+  border: 0.5px solid rgba(201, 160, 99, 0.25);
+  border-left: 2px solid var(--gold);
+  border-radius: 3px; padding: 20px 24px; margin: 8px 0 24px 50px;
+}
+.alert-box p { font-size: 14px; color: var(--body-text); line-height: 1.85; }
+.alert-box p strong { color: var(--text); font-weight: 400; }
+
+/* ═══════════════════════════════════════════
+   CONTACT STRIP
+═══════════════════════════════════════════ */
+.contact-strip {
+  background: var(--black2); border: 0.5px solid var(--border);
+  border-radius: 4px; padding: 32px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; margin-top: 56px; flex-wrap: wrap;
+}
+.cs-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.cs-text { font-family: var(--serif); font-size: 22px; font-weight: 300; font-style: italic; color: var(--text); }
+.cs-right { display: flex; flex-direction: column; gap: 8px; text-align: right; }
+.cs-link {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  color: var(--gold-dim); text-decoration: none;
+  border-bottom: 0.5px solid rgba(201,160,99,0.25); padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cs-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  border-top: 0.5px solid var(--border);
+  background: var(--black2);
+  padding: 40px 48px 32px;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 36px; flex-wrap: wrap; gap: 24px;
+}
+.footer-logo img { width: 110px; height: auto; display: block; opacity: 0.7; }
+.footer-tagline { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--muted2); margin-top: 6px; }
+.footer-policies { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+.footer-policies span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.footer-policy-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-end; }
+.footer-policy-links a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--muted2); text-decoration: none;
+  transition: color 0.2s; border-bottom: 0.5px solid transparent; padding-bottom: 1px;
+}
+.footer-policy-links a:hover { color: var(--gold); border-color: var(--gold-dim); }
+.footer-policy-links a.current { color: var(--gold-dim); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px; border-top: 0.5px solid var(--border);
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-family: var(--mono); font-size: 9px; letter-spacing: 0.10em; color: var(--muted); opacity: 0.7; }
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-policy-links { display: none; }
+  .hero { padding: 100px 24px 56px; }
+  .page { padding: 0 24px 80px; }
+  .contact-strip { flex-direction: column; align-items: flex-start; }
+  .cs-right { text-align: left; }
+  footer { padding: 36px 24px 28px; }
+  .footer-top { flex-direction: column; }
+  .footer-policies { align-items: flex-start; }
+  .footer-policy-links { justify-content: flex-start; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 600px) {
+  .def-item { grid-template-columns: 1fr; gap: 6px; }
+  .hero-meta { flex-wrap: wrap; gap: 16px; }
+  .clause { gap: 14px; }
+  .clause-text { font-size: 14px; }
+  .hero { padding: 90px 20px 48px; }
+  .page { padding: 0 20px 72px; }
+  .alert-box { margin-left: 0; }
+}
+
+
+    /* ── CURSOR (desktop only) ── */
+    @media (hover:hover) and (pointer:fine) {
+      body { cursor: none; }
+      a, button, input { cursor: none; }
+      .cur { position: fixed; width: 8px; height: 8px; background: #c9a063; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s; }
+      .cur-ring { position: fixed; width: 30px; height: 30px; border: .5px solid rgba(201,160,99,0.5); border-radius: 50%; pointer-events: none; z-index: 9997; transform: translate(-50%,-50%); transition: left .08s ease-out, top .08s ease-out, width .25s, height .25s; }
+    }
+
+</style>
+</head>
+<body>
+<!-- ══ NAV ══ -->
+<nav>
+<a class="nav-logo" href="index.html">
+<img alt="Unlistd Life" data-recalc-dims="1" decoding="async" src="https://i0.wp.com/unlistd.life/wp-content/uploads/2026/04/Logo-Unlistd-Footer-Logo-e1777305914981.png?w=800&amp;ssl=1"/>
+</a>
+<div class="nav-right">
+<ul class="nav-policy-links">
+<li><a class="active" href="terms-of-service.html">Terms of Service</a></li>
+<li><a href="refund-cancellation.html">Refund &amp; Cancellation</a></li>
+<li><a href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+<a class="nav-back" href="index.html">← Back to <strong>Unlistd Life</strong></a>
+</div>
+</nav>
+<!-- ══ HERO ══ -->
+<div class="hero">
+<div class="hero-eye">Legal · Policies</div>
+<h1 class="hero-title">Terms of <em>Service</em></h1>
+<p class="hero-sub">Governs your participation in every <strong>Unlistd Life</strong> trip. Read before you book.</p>
+<div class="hero-meta">
+<div class="hm"><div class="hm-label">Effective</div><div class="hm-val">May 2026</div></div>
+<div class="hm"><div class="hm-label">Applies to</div><div class="hm-val">All <strong>Unlistd Life</strong> Trips</div></div>
+<div class="hm"><div class="hm-label">Jurisdiction</div><div class="hm-val">India</div></div>
+<div class="hm"><div class="hm-label">Contact</div><div class="hm-val">hello@unlistd.life</div></div>
+</div>
+</div>
+<div class="page">
+<!-- ── 01. DEFINITIONS ── -->
+<div class="doc-section reveal">
+<div class="sec-num">01</div>
+<h2 class="sec-heading">Definitions &amp; <span>Scope</span></h2>
+<div class="def-list">
+<div class="def-item">
+<div class="def-term">"<strong>Unlistd Life</strong>"</div>
+<div class="def-desc">Refers to the travel experience brand, including its organizers, curators, and trip leaders.</div>
+</div>
+<div class="def-item">
+<div class="def-term">"Traveler" / "You"</div>
+<div class="def-desc">Any individual who has been invited to, registered for, or paid for a trip organized by <strong>Unlistd Life</strong>.</div>
+</div>
+<div class="def-item">
+<div class="def-term">"Trip"</div>
+<div class="def-desc">Any curated travel experience, trek, or group journey organized and operated by <strong>Unlistd Life</strong>.</div>
+</div>
+<div class="def-item">
+<div class="def-term">"Advance"</div>
+<div class="def-desc">The seat-securing payment (currently ₹2,500) paid at the time of booking confirmation. Adjusted against the total trip cost.</div>
+</div>
+<div class="def-item">
+<div class="def-term">"Confirmation"</div>
+<div class="def-desc">Written communication from <strong>Unlistd Life</strong> (WhatsApp or email) confirming the traveler's seat is reserved.</div>
+</div>
+</div>
+<div class="highlight-box" style="margin-top:28px;">
+<p>By paying the advance amount or completing any booking with <strong>Unlistd Life</strong>, you confirm that you have read, understood, and agree to all terms and conditions set out in this document. <strong>These terms are binding.</strong></p>
+</div>
+</div>
+<!-- ── 02. BOOKING & PAYMENT ── -->
+<div class="doc-section reveal">
+<div class="sec-num">02</div>
+<h2 class="sec-heading">Booking &amp; <span>Payment</span></h2>
+<div class="clause">
+<div class="clause-num">2.1</div>
+<div class="clause-text">All <strong>Unlistd Life</strong> trips are <strong>invite-only</strong>. Receipt of an invite link does not guarantee a seat — your seat is confirmed only upon payment of the advance amount and receipt of written confirmation from <strong>Unlistd Life</strong>.</div>
+</div>
+<div class="clause">
+<div class="clause-num">2.2</div>
+<div class="clause-text">Seats are allocated on a <strong>first-come, first-serve basis</strong> among invited travelers. <strong>Unlistd Life</strong> reserves the right to accept or decline any booking at its sole discretion before confirmation is issued.</div>
+</div>
+<div class="clause">
+<div class="clause-num">2.3</div>
+<div class="clause-text">The advance amount is <strong>adjusted against the total trip cost</strong> and is not an additional charge. The balance amount must be paid in full as communicated at time of confirmation — typically 7–10 days before departure.</div>
+</div>
+<div class="clause">
+<div class="clause-num">2.4</div>
+<div class="clause-text">Failure to pay the balance amount by the stipulated deadline may result in <strong>automatic cancellation of your seat</strong> without refund of the advance. <strong>Unlistd Life</strong> will communicate payment deadlines clearly.</div>
+</div>
+<div class="clause">
+<div class="clause-num">2.5</div>
+<div class="clause-text">Payments are accepted via UPI, bank transfer, or Razorpay. <strong>Unlistd Life</strong> does not accept cash payments. <strong>Always retain your payment receipt or screenshot</strong> as proof of booking.</div>
+</div>
+</div>
+<!-- ── 03. TRAVELER RESPONSIBILITIES ── -->
+<div class="doc-section reveal">
+<div class="sec-num">03</div>
+<h2 class="sec-heading">Traveler <span>Responsibilities</span></h2>
+<div class="clause">
+<div class="clause-num">3.1</div>
+<div class="clause-text"><strong>Valid government-issued ID</strong> is mandatory for boarding. No traveler will be permitted to join the trip without ID verification. Failure to carry valid ID does not entitle you to a refund.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.2</div>
+<div class="clause-text">Travelers must report at the designated pickup point <strong>at least 30 minutes prior</strong> to the scheduled departure time. The vehicle will not wait for latecomers. No refund will be issued for missed boarding.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.3</div>
+<div class="clause-text">Travelers must disclose any <strong>medical conditions, allergies, or physical limitations</strong> at the time of booking. Failure to disclose may result in exclusion from certain activities at the trip leader's discretion, without refund.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.4</div>
+<div class="clause-text">Each traveler is responsible for their own <strong>personal belongings and luggage</strong>. <strong>Unlistd Life</strong> and its organizers accept no liability for lost, stolen, or damaged personal items at any point during the trip.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.5</div>
+<div class="clause-text">Travelers must follow all instructions from the <strong>trip leader at all times</strong>, particularly during trekking, outdoor, and adventure activities. <strong>Unlistd Life</strong> reserves the right to remove any traveler who poses a risk to themselves or the group.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.6</div>
+<div class="clause-text">Travelers are expected to maintain a <strong>respectful, inclusive standard of behavior</strong> throughout the trip. Any act of harassment, discrimination, misconduct, or behavior that disrupts the group experience will result in immediate removal from the trip without refund.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.7</div>
+<div class="clause-text"><strong>Alcohol consumption</strong> is a personal choice but must not impair judgment or behavior in ways that affect the group or safety. Any traveler deemed unfit to participate in activities due to intoxication may be excluded at the trip leader's discretion.</div>
+</div>
+<div class="clause">
+<div class="clause-num">3.8</div>
+<div class="clause-text"><strong>Zero tolerance for illegal or disruptive conduct.</strong> If a traveler is found engaging in any illegal activity, disturbing the peace, exploiting or endangering fellow travelers, or engaging in any conduct that negatively impacts the experience of others, <strong>Unlistd Life</strong> reserves the right to expel and remove that traveler from the trip immediately — without prior notice, without excuse, and without any refund or compensation of any kind. This decision rests solely with the trip leader or <strong>Unlistd Life</strong> organizers and is final.</div>
+</div>
+<div class="alert-box">
+<p><strong>Unlistd Life</strong> trips are built on mutual respect. Any behavior that endangers, exploits, or ruins the experience for fellow travelers will result in immediate removal. <strong>No refund. No exceptions.</strong></p>
+</div>
+</div>
+<!-- ── 04. ITINERARY & CHANGES ── -->
+<div class="doc-section reveal">
+<div class="sec-num">04</div>
+<h2 class="sec-heading">Itinerary &amp; <span>Changes</span></h2>
+<div class="clause">
+<div class="clause-num">4.1</div>
+<div class="clause-text">Published itineraries are <strong>indicative, not contractual</strong>. <strong>Unlistd Life</strong> reserves the right to modify routes, timings, accommodation, activities, or any part of the itinerary due to weather, road conditions, local regulations, or operational necessity.</div>
+</div>
+<div class="clause">
+<div class="clause-num">4.2</div>
+<div class="clause-text">Where changes are made, <strong>Unlistd Life</strong> will make every effort to provide <strong>alternatives of equal or greater quality</strong>. Itinerary changes do not entitle the traveler to a refund.</div>
+</div>
+<div class="clause">
+<div class="clause-num">4.3</div>
+<div class="clause-text">In hill regions and high-altitude areas, <strong>air conditioning in vehicles will be switched off</strong> for safety. This is at the driver's discretion and is standard practice on mountain routes.</div>
+</div>
+<div class="clause">
+<div class="clause-num">4.4</div>
+<div class="clause-text">Delays due to traffic, road conditions, weather, or any external factors are possible on mountain routes. <strong>Unlistd Life</strong> will <strong>not provide compensation</strong> for delays outside our reasonable control.</div>
+</div>
+</div>
+<!-- ── 05. HEALTH, SAFETY & RISK ── -->
+<div class="doc-section reveal">
+<div class="sec-num">05</div>
+<h2 class="sec-heading">Health, Safety <span>&amp; Risk</span></h2>
+<div class="clause">
+<div class="clause-num">5.1</div>
+<div class="clause-text">Participation in <strong>Unlistd Life</strong> trips — particularly treks and outdoor experiences — <strong>involves inherent risks</strong> including but not limited to: physical injury, altitude sickness, adverse weather, rough terrain, and wildlife. By booking, you acknowledge and accept these risks.</div>
+</div>
+<div class="clause">
+<div class="clause-num">5.2</div>
+<div class="clause-text"><strong>Unlistd Life</strong> <strong>does not provide travel insurance</strong>. Travelers are strongly recommended to obtain their own comprehensive travel and medical insurance before departure, covering adventure activities and mountain trekking.</div>
+</div>
+<div class="clause">
+<div class="clause-num">5.3</div>
+<div class="clause-text">In the event of a medical emergency, <strong>Unlistd Life</strong>'s trip leader will provide first response support and coordinate evacuation. Any <strong>costs incurred for medical treatment, evacuation, or emergency transport</strong> are borne entirely by the traveler.</div>
+</div>
+<div class="clause">
+<div class="clause-num">5.4</div>
+<div class="clause-text">Travelers with pre-existing medical conditions must carry all required <strong>personal medication</strong>. <strong>Unlistd Life</strong> does not carry or administer prescription medication on behalf of travelers.</div>
+</div>
+<div class="clause">
+<div class="clause-num">5.5</div>
+<div class="clause-text"><strong>Unlistd Life</strong> reserves the right to <strong>decline or remove a traveler</strong> at any point if, in the trip leader's judgment, their physical condition poses a risk to themselves or others. No refund will be issued in such cases.</div>
+</div>
+</div>
+<!-- ── 06. LIABILITY ── -->
+<div class="doc-section reveal">
+<div class="sec-num">06</div>
+<h2 class="sec-heading">Liability &amp; <span>Limitation</span></h2>
+<div class="clause">
+<div class="clause-num">6.1</div>
+<div class="clause-text"><strong>Unlistd Life</strong>'s total liability to any traveler, under any circumstances, shall not exceed the <strong>total amount paid by that traveler</strong> for the specific trip in question.</div>
+</div>
+<div class="clause">
+<div class="clause-num">6.2</div>
+<div class="clause-text"><strong>Unlistd Life</strong> shall not be liable for any <strong>indirect, consequential, or incidental loss</strong> including loss of income, loss of enjoyment, or additional travel costs arising from trip disruptions, changes, or cancellations.</div>
+</div>
+<div class="clause">
+<div class="clause-num">6.3</div>
+<div class="clause-text"><strong>Unlistd Life</strong> acts as an organizer and is not responsible for the acts or omissions of <strong>third-party service providers</strong> including but not limited to: hotels, transport operators, trek guides, restaurants, or local vendors.</div>
+</div>
+<div class="clause">
+<div class="clause-num">6.4</div>
+<div class="clause-text">In exceptional cases, <strong>Unlistd Life</strong> may transfer a trip's operation to a <strong>partner travel company</strong> of similar standard. Travelers will be notified in advance. Terms and pricing will remain unchanged.</div>
+</div>
+</div>
+<!-- ── 07. GOVERNING LAW ── -->
+<div class="doc-section reveal">
+<div class="sec-num">07</div>
+<h2 class="sec-heading">Governing <span>Law</span></h2>
+<div class="clause">
+<div class="clause-num">7.1</div>
+<div class="clause-text">These Terms &amp; Conditions are governed by and construed in accordance with the <strong>laws of India</strong>.</div>
+</div>
+<div class="clause">
+<div class="clause-num">7.2</div>
+<div class="clause-text">Any disputes arising from these terms shall be subject to the <strong>exclusive jurisdiction of courts in India</strong>.</div>
+</div>
+<div class="clause">
+<div class="clause-num">7.3</div>
+<div class="clause-text"><strong>Unlistd Life</strong> reserves the right to <strong>update these terms</strong> at any time. The version in effect at the time of your booking applies to your trip. Updated terms are published at unlistd.life.</div>
+</div>
+<div class="clause">
+<div class="clause-num">7.4</div>
+<div class="clause-text">If any provision of these terms is found to be unenforceable, the remaining provisions shall continue in <strong>full force and effect</strong>.</div>
+</div>
+</div>
+<!-- CONTACT STRIP -->
+<div class="contact-strip reveal">
+<div class="cs-left">
+<div class="cs-label">Questions about these terms?</div>
+<div class="cs-text">We're real people. Just ask.</div>
+</div>
+<div class="cs-right">
+<a class="cs-link" href="mailto:hello@unlistd.life">hello@unlistd.life</a>
+<a class="cs-link" href="https://wa.me/919877628533">WhatsApp: +91 98776 28533</a>
+</div>
+</div>
+</div><!-- /.page -->
+<!-- ══ FOOTER ══ -->
+<footer>
+<div class="footer-inner">
+<div class="footer-top">
+<div>
+<div class="footer-logo">
+<img alt="Unlistd Life" data-recalc-dims="1" decoding="async" src="https://i0.wp.com/unlistd.life/wp-content/uploads/2026/04/Logo-Unlistd-Footer-Logo-e1777305914981.png?w=800&amp;ssl=1"/>
+</div>
+<div class="footer-tagline">for the ones who find things first.</div>
+</div>
+<div class="footer-policies">
+<span>Legal Pages</span>
+<div class="footer-policy-links">
+<a class="current" href="terms-of-service.html">Terms of Service</a>
+<a href="refund-cancellation.html">Refund &amp; Cancellation</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-copy">© 2026 <strong>Unlistd Life</strong> · All rights reserved</div>
+<div class="footer-copy">unlistd · offbeat travel india · invite-only community</div>
+</div>
+</div>
+</footer>
+<script>
+/* SCROLL REVEAL */
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+</script>
+
+  <!-- CUSTOM DUAL-RING CURSOR -->
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curRing"></div>
+  <script>
+    (function(){
+      var cur = document.getElementById('cur');
+      var ring = document.getElementById('curRing');
+      if (!cur || !ring) return;
+      var mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+      var ringX = mouseX, ringY = mouseY;
+      window.addEventListener('mousemove', function(e){
+        mouseX = e.clientX; mouseY = e.clientY;
+        cur.style.left = mouseX + 'px';
+        cur.style.top = mouseY + 'px';
+      });
+      function animRing(){
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+        requestAnimationFrame(animRing);
+      }
+      requestAnimationFrame(animRing);
+      document.querySelectorAll('a, button, input').forEach(function(el){
+        el.addEventListener('mouseenter', function(){
+          ring.style.width = '46px'; ring.style.height = '46px';
+          ring.style.borderColor = '#c9a063';
+        });
+        el.addEventListener('mouseleave', function(){
+          ring.style.width = '30px'; ring.style.height = '30px';
+          ring.style.borderColor = 'rgba(201,160,99,0.5)';
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

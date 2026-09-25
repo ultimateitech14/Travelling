@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Udaipur × Jawai Trip | Unlistd Life</title>
+  <meta name="description" content="2N/3D invite-only trip to Udaipur & Jawai in Rajasthan — lakes on one side, leopard hills on the other. 14 seats, starting from ₹13,000.">
+  <link rel="icon" href="https://i0.wp.com/unlistd.life/wp-content/uploads/2026/04/cropped-Logo-Unlistd-Fav-Icon.png?fit=32%2C32&ssl=1" sizes="32x32" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0A0908;
+      --black-2: #121009;
+      --card: #17140e;
+      --card-2: #1c1810;
+      --gold: #C9A84C;
+      --gold-light: #E4CA82;
+      --gold-dim: rgba(201,168,76,0.35);
+      --line: rgba(201,168,76,0.16);
+      --ink: #F5F1E6;
+      --ink-dim: #AFA692;
+      --ink-faint: #7c7361;
+      --green: #5ec47a;
+      --red: #c06060;
+      --serif: 'Cormorant Garamond', serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--black); }
+    body {
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,.05), transparent 60%), var(--black);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--gold); color: var(--black); }
+
+    /* Custom Cursor */
+    @media (hover:hover) and (pointer:fine) {
+      body { cursor: none; }
+      a, button, .seat, .uopt, input { cursor: none; }
+      .cur { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s; }
+      .cur-ring { position: fixed; width: 30px; height: 30px; border: .5px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9997; transform: translate(-50%,-50%); transition: left .08s ease-out, top .08s ease-out, width .25s, height .25s; opacity: .4; }
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 6vw; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(10,9,8,.85), transparent);
+    }
+    .wordmark { font-family: var(--mono); font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+    .wordmark b { color: var(--gold); }
+    .nav-cta {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      background: var(--gold); color: var(--black); font-weight: 500;
+      padding: 9px 20px; border-radius: 2px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 6vw 72px; position: relative; overflow: hidden;
+      background: linear-gradient(to bottom, #0a0805 0%, #151009 50%, var(--black) 100%);
+    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+    .hero-badge::before { content: ''; width: 20px; height: 1px; background: var(--gold-dim); }
+    .hero-title { font-family: var(--serif); font-size: clamp(48px, 9vw, 120px); font-weight: 500; line-height: .98; letter-spacing: -.02em; color: var(--ink); }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-subtitle { font-family: var(--serif); font-size: clamp(17px, 2.6vw, 26px); font-style: italic; color: var(--ink-dim); margin-top: 12px; margin-bottom: 32px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 24px 36px; }
+    .hero-meta-label { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+    .hero-meta-val { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); }
+    .hero-meta-val em { font-style: italic; color: var(--gold-light); }
+    .hero-cta-wrap { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .btn-gold { background: var(--gold); color: var(--black); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; padding: 14px 34px; border-radius: 2px; }
+    .btn-gold:hover { background: #b8924f; }
+    .btn-outline { color: var(--ink-dim); font-family: var(--mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); }
+    .btn-outline:hover { color: var(--gold-light); border-color: var(--gold); }
+
+    .marquee-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--black-2); overflow: hidden; padding: 14px 0; }
+    .marquee-track { display: flex; animation: scrollmarq 34s linear infinite; white-space: nowrap; }
+    .marquee-track span { font-family: var(--mono); font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dim); padding: 0 32px; flex-shrink: 0; }
+    @keyframes scrollmarq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    section { padding: 90px 6vw; max-width: 1200px; margin: 0 auto; }
+    .sec-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .sec-eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--gold-dim); }
+    .sec-title { font-family: var(--serif); font-size: clamp(30px, 4vw, 54px); font-weight: 400; line-height: 1.12; color: var(--ink); margin-bottom: 48px; }
+    .sec-title em { font-style: italic; color: var(--gold-light); }
+
+    .days-timeline { position: relative; padding-left: 40px; }
+    .days-timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold-dim), var(--line), transparent); }
+    .day-block { position: relative; margin-bottom: 52px; }
+    .day-dot { position: absolute; left: -40px; top: 5px; width: 13px; height: 13px; border-radius: 50%; background: var(--black); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; }
+    .day-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .day-label { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .day-title { font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); font-weight: 400; color: var(--ink); margin-bottom: 6px; }
+    .day-title em { font-style: italic; color: var(--gold-light); }
+    .day-location { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-bottom: 14px; }
+    .act { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
+    .act-time { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); min-width: 72px; padding-top: 2px; }
+    .act-icon { font-size: 16px; min-width: 22px; }
+    .act-text { font-size: 14px; color: var(--ink-dim); line-height: 1.7; }
+    .act-text strong { color: var(--ink); font-weight: 400; }
+    .meal-tag { display: inline-block; margin-top: 12px; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; background: rgba(201,168,76,.06); border: 1px solid var(--gold-dim); color: var(--gold); padding: 5px 12px; border-radius: 999px; }
+
+    /* Form */
+    .form-wrap { max-width: 580px; margin: 0 auto; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 40px 32px; }
+    .field { margin-bottom: 18px; }
+    .field label { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); display: block; margin-bottom: 6px; }
+    .field input { width: 100%; background: #14110b; border: 1px solid var(--line); border-radius: 4px; padding: 12px 14px; color: var(--ink); font-family: var(--sans); font-size: 14px; outline: none; }
+    .field input:focus { border-color: var(--gold); }
+    .fpair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .uopts { display: flex; flex-wrap: wrap; gap: 6px; }
+    .uopt { border: 1px solid var(--line); border-radius: 20px; padding: 8px 14px; font-family: var(--mono); font-size: 11px; color: var(--ink-dim); cursor: pointer; user-select: none; }
+    .uopt:hover, .uopt.sel { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,.1); }
+    .submit-btn { width: 100%; margin-top: 20px; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; background: var(--gold); color: var(--black); border: none; border-radius: 2px; padding: 15px; cursor: pointer; }
+    .submit-btn:hover { background: #b8924f; }
+    .success-state { display: none; text-align: center; padding: 40px 10px; }
+    .success-state .mark { font-family: var(--serif); font-size: 48px; color: var(--gold); margin-bottom: 12px; }
+
+    footer { text-align: center; padding: 48px 6vw; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+  </style>
+</head>
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cur-ring"></div>
+
+  <nav>
+    <a href="index.html" class="wordmark">← <b>unlistd</b> life</a>
+    <a href="#apply" class="nav-cta">request an invite</a>
+  </nav>
+
+  <section class="hero" style="max-width:100vw;margin:0;padding-top:140px;">
+    <div class="hero-badge">unlistd presents</div>
+    <h1 class="hero-title">Udaipur × <em>Jawai</em></h1>
+    <div class="hero-subtitle">lakes on one side. leopard hills on the other.</div>
+    <div class="hero-meta">
+      <div>
+        <div class="hero-meta-label">departure</div>
+        <div class="hero-meta-val">1<em>st</em> Oct</div>
+      </div>
+      <div>
+        <div class="hero-meta-label">return</div>
+        <div class="hero-meta-val">5<em>th</em> Oct</div>
+      </div>
+      <div>
+        <div class="hero-meta-label">duration</div>
+        <div class="hero-meta-val">2N · 3D</div>
+      </div>
+      <div>
+        <div class="hero-meta-label">starting from</div>
+        <div class="hero-meta-val">₹<em>13,000</em></div>
+      </div>
+      <div>
+        <div class="hero-meta-label">batch size</div>
+        <div class="hero-meta-val">14 <em>seats</em></div>
+      </div>
+    </div>
+    <div class="hero-cta-wrap">
+      <a href="#apply" class="btn-gold">apply for a seat</a>
+      <a href="#journey" class="btn-outline">view itinerary</a>
+    </div>
+  </section>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>udaipur · city of lakes <span>—</span></span><span>jawai leopard safari <span>—</span></span><span>lake pichola boating <span>—</span></span><span>monsoon palace sunset <span>—</span></span><span>7 boys + 7 girls <span>—</span></span><span>force urbania luxury <span>—</span></span><span>from ₹13,000 <span>—</span></span>
+      <span>udaipur · city of lakes <span>—</span></span><span>jawai leopard safari <span>—</span></span><span>lake pichola boating <span>—</span></span><span>monsoon palace sunset <span>—</span></span><span>7 boys + 7 girls <span>—</span></span><span>force urbania luxury <span>—</span></span><span>from ₹13,000 <span>—</span></span>
+    </div>
+  </div>
+
+  <!-- ITINERARY -->
+  <section id="journey">
+    <div class="sec-eyebrow">the journey</div>
+    <h2 class="sec-title">day by day,<br><em>the unlistd way.</em></h2>
+
+    <div class="days-timeline">
+      <div class="day-block">
+        <div class="day-dot"><div class="day-dot-inner"></div></div>
+        <div class="day-label">Day 1 · Thursday 1st October</div>
+        <h3 class="day-title">Gurugram to <em>Udaipur</em></h3>
+        <div class="day-location">📍 Departure · Gurugram</div>
+        <div class="act">
+          <div class="act-time">10:00 PM</div>
+          <div class="act-icon">🚌</div>
+          <div class="act-text"><strong>Depart from Gurugram</strong> — board the Force Urbania, meet your tribe for the first time. Overnight highway drive into Rajasthan begins.</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-dot"><div class="day-dot-inner"></div></div>
+        <div class="day-label">Day 2 · Friday 2nd October</div>
+        <h3 class="day-title">Udaipur · <em>The Arrival</em></h3>
+        <div class="day-location">📍 Udaipur, Rajasthan · City of Lakes</div>
+        <div class="act">
+          <div class="act-time">Morning</div>
+          <div class="act-icon">🏨</div>
+          <div class="act-text"><strong>Arrive in Udaipur</strong> — hotel check-in and rest after the overnight drive.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">2:30 PM</div>
+          <div class="act-icon">🌇</div>
+          <div class="act-text"><strong>Monsoon Palace (Sajjangarh)</strong> — a hilltop palace above the Aravallis, and one of the best views in the city.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">6:00 PM</div>
+          <div class="act-icon">🌅</div>
+          <div class="act-text"><strong>Sundowner at Fatehsagar Lake</strong> — golden hour by Udaipur's quieter lake.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">Evening</div>
+          <div class="act-icon">🍽️</div>
+          <div class="act-text"><strong>Back to hotel</strong> — dinner and stay.</div>
+        </div>
+        <div class="meal-tag">🍽 dinner included</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-dot"><div class="day-dot-inner"></div></div>
+        <div class="day-label">Day 3 · Saturday 3rd October</div>
+        <h3 class="day-title">Udaipur · <em>The Palaces</em></h3>
+        <div class="day-location">📍 Udaipur, Rajasthan</div>
+        <div class="act">
+          <div class="act-time">Morning</div>
+          <div class="act-icon">🍳</div>
+          <div class="act-text"><strong>Breakfast</strong></div>
+        </div>
+        <div class="act">
+          <div class="act-time">Day</div>
+          <div class="act-icon">🏰</div>
+          <div class="act-text"><strong>City Palace &amp; Lake Pichola boating</strong> — Udaipur's crown jewel, followed by a boat ride across the lake.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">Day</div>
+          <div class="act-icon">🚡</div>
+          <div class="act-text"><strong>Karni Mata Ropeway</strong> — cable-car ride over the city for the best skyline view of Udaipur.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">Evening</div>
+          <div class="act-icon">🎭</div>
+          <div class="act-text"><strong>Bagore Ki Haveli cultural program</strong> — a traditional Rajasthani dance performance right on the ghat.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">Evening</div>
+          <div class="act-icon">🌊</div>
+          <div class="act-text"><strong>Ambarai Ghat</strong> — quiet, scenic side of Lake Pichola for an evening stroll.</div>
+        </div>
+        <div class="meal-tag">🍽 breakfast &amp; dinner included</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-dot"><div class="day-dot-inner"></div></div>
+        <div class="day-label">Day 4 · Sunday 4th October</div>
+        <h3 class="day-title">Udaipur to <em>Jawai</em></h3>
+        <div class="day-location">📍 Udaipur → Jawai, Rajasthan</div>
+        <div class="act">
+          <div class="act-time">Morning</div>
+          <div class="act-icon">🍳</div>
+          <div class="act-text"><strong>Breakfast &amp; check-out</strong> — pack up and proceed to Jawai.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">3:00 – 6:00 PM</div>
+          <div class="act-icon">🐆</div>
+          <div class="act-text"><strong>Safari in Jawai</strong> — Jawai's leopard hills, where leopards roam free among the granite boulders.</div>
+        </div>
+        <div class="act">
+          <div class="act-time">7:00 PM</div>
+          <div class="act-icon">🚌</div>
+          <div class="act-text"><strong>Depart from Jawai to Gurugram</strong> — overnight journey home.</div>
+        </div>
+        <div class="meal-tag">🍽 breakfast included</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-dot"><div class="day-dot-inner"></div></div>
+        <div class="day-label">Day 5 · Monday 5th October</div>
+        <h3 class="day-title">Back to <em>Gurugram</em></h3>
+        <div class="day-location">📍 Gurugram · Home</div>
+        <div class="act">
+          <div class="act-time">Morning</div>
+          <div class="act-icon">🌆</div>
+          <div class="act-text"><strong>Arrive Gurugram</strong> — same city. Different people.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST FORM -->
+  <section id="apply" style="padding-top:20px;">
+    <div class="form-wrap">
+      <div id="uform-body">
+        <div class="sec-eyebrow">join the waitlist</div>
+        <h2 style="font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:20px;">Udaipur × Jawai</h2>
+
+        <div class="fpair">
+          <div class="field">
+            <label for="uf-name">your name</label>
+            <input type="text" id="uf-name" placeholder="first name">
+          </div>
+          <div class="field">
+            <label for="uf-age">age</label>
+            <input type="number" id="uf-age" placeholder="24">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>gender</label>
+          <div class="uopts usingle" id="uf-gender">
+            <div class="uopt" data-val="male">male</div>
+            <div class="uopt" data-val="female">female</div>
+            <div class="uopt" data-val="non-binary">non-binary</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="uf-work">what keeps you busy?</label>
+          <input type="text" id="uf-work" placeholder="work, founder, designer...">
+        </div>
+
+        <div class="field">
+          <label for="uf-instagram">instagram handle</label>
+          <input type="text" id="uf-instagram" placeholder="@yourhandle">
+        </div>
+
+        <div class="fpair">
+          <div class="field">
+            <label for="uf-whatsapp">whatsapp number</label>
+            <input type="tel" id="uf-whatsapp" placeholder="9876543210" maxlength="10">
+          </div>
+          <div class="field">
+            <label for="uf-email">email</label>
+            <input type="email" id="uf-email" placeholder="you@domain.com">
+          </div>
+        </div>
+
+        <div id="uf-err" style="font-family:var(--mono);font-size:11px;color:var(--red);margin-bottom:12px;min-height:16px;"></div>
+        <button class="submit-btn" id="uf-submit" type="button">apply for this batch</button>
+      </div>
+
+      <div class="success-state" id="uf-suc">
+        <div class="mark">—</div>
+        <h3 style="font-family:var(--serif);font-size:28px;margin-bottom:8px;">you're on the list.</h3>
+        <p style="font-size:14px;color:var(--ink-dim);">we review every application personally and get back to you within 5 days.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html" class="wordmark" style="justify-content:center;margin-bottom:10px;">unlistd life</a>
+    <div>© 2026 Unlistd Life · for the ones who find things first</div>
+  </footer>
+
+  <script>
+    (function(){
+      var cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
+      if (cur && ring) {
+        document.addEventListener('mousemove', function(e){
+          cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+          ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+        });
+      }
+
+      document.querySelectorAll('.uopt').forEach(function(chip){
+        chip.addEventListener('click', function(){
+          var p = chip.parentElement;
+          if (p.classList.contains('usingle')) {
+            p.querySelectorAll('.uopt').forEach(function(c){ c.classList.remove('sel'); });
+            chip.classList.add('sel');
+          } else {
+            chip.classList.toggle('sel');
+          }
+        });
+      });
+
+      var btn = document.getElementById('uf-submit');
+      var err = document.getElementById('uf-err');
+      if (btn) {
+        btn.addEventListener('click', function(){
+          var name = document.getElementById('uf-name').value.trim();
+          var email = document.getElementById('uf-email').value.trim();
+          var wa = document.getElementById('uf-whatsapp').value.trim();
+          var ig = document.getElementById('uf-instagram').value.trim();
+
+          if (!name || !email || !wa || !ig) {
+            if (err) err.textContent = 'please fill all required fields.';
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'submitting···';
+
+          var payload = {
+            trip: 'Udaipur × Jawai',
+            name: name,
+            age: document.getElementById('uf-age').value.trim(),
+            gender: (document.querySelector('#uf-gender .uopt.sel') || {}).dataset?.val || '',
+            occupation: document.getElementById('uf-work').value.trim(),
+            whatsapp: wa,
+            instagram: ig,
+            email: email,
+            submitted_at: new Date().toISOString()
+          };
+
+          try {
+            var all = JSON.parse(localStorage.getItem('unlistd_applications') || '[]');
+            all.push(payload);
+            localStorage.setItem('unlistd_applications', JSON.stringify(all));
+          } catch(e){}
+
+          setTimeout(function(){
+            document.getElementById('uform-body').style.display = 'none';
+            document.getElementById('uf-suc').style.display = 'block';
+          }, 600);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Bir · Rajgundha · Barot Trip | Unlistd Life</title>
+  <meta name="description" content="Unlistd presents: Bir – Rajgundha – Barot. 3 days, 2 nights, 16 people. 1st October departure from Delhi. Invite-only offbeat travel.">
+  <link rel="icon" href="https://i0.wp.com/unlistd.life/wp-content/uploads/2026/04/cropped-Logo-Unlistd-Fav-Icon.png?fit=32%2C32&ssl=1" sizes="32x32" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #070706;
+      --black2: #0d0d0b;
+      --black3: #131310;
+      --black4: #191916;
+      --border: rgba(255,255,255,0.06);
+      --border2: rgba(255,255,255,0.11);
+      --gold: #c9a063;
+      --gold-dim: #7a5e35;
+      --gold-pale: rgba(201,160,99,0.07);
+      --text: #e6e2d8;
+      --muted: #57554e;
+      --muted2: #8a8780;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.025; pointer-events: none; z-index: 9999;
+    }
+
+    /* ── CURSOR (desktop only) ── */
+    @media (hover:hover) and (pointer:fine) {
+      body { cursor: none; }
+      a, button, .seat, .vid-card, .ulwf-opt, .ulwf-sub, input { cursor: none; }
+      .cur { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s; }
+      .cur-ring { position: fixed; width: 30px; height: 30px; border: .5px solid rgba(201,160,99,0.5); border-radius: 50%; pointer-events: none; z-index: 9997; transform: translate(-50%,-50%); transition: left .08s ease-out, top .08s ease-out, width .25s, height .25s; }
+    }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; transition: background .4s, backdrop-filter .4s, border-color .4s; border-bottom: .5px solid transparent; }
+    nav.scrolled { background: rgba(7,7,6,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--border); }
+    .nav-logo { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-cta { background: var(--gold); color: var(--black); font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; padding: 9px 20px; border-radius: 2px; text-decoration: none; transition: background .2s; white-space: nowrap; }
+    .nav-cta:hover { background: #b8924f; }
+
+    /* ── HERO ── */
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 72px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, #010810 0%, #020c14 40%, #040a0c 70%, #070706 100%); }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(.55) contrast(1.05); }
+    #starfield { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
+    .star { position: absolute; border-radius: 50%; animation: twinkle ease-in-out infinite; }
+    @keyframes twinkle { 0%, 100% { opacity: .12; } 50% { opacity: 1; } }
+    .shooting-star { position: absolute; height: 1.5px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85), rgba(255,255,255,0)); border-radius: 2px; animation: shoot linear infinite; opacity: 0; }
+    @keyframes shoot { 0% { opacity: 0; transform: translateX(0) translateY(0) rotate(-20deg); } 3% { opacity: .9; } 20% { opacity: 0; transform: translateX(500px) translateY(140px) rotate(-20deg); } 100% { opacity: 0; } }
+    .milky-way { position: absolute; width: 140%; height: 50%; top: 5%; left: -20%; background: radial-gradient(ellipse at center, rgba(180,200,255,0.03) 0%, rgba(100,140,220,0.015) 40%, transparent 70%); transform: rotate(-25deg); pointer-events: none; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to top, rgba(7,7,6,1) 0%, rgba(7,7,6,.55) 40%, rgba(7,7,6,.15) 100%); }
+
+    .hero-badge, .hero-title, .hero-subtitle, .hero-meta, .hero-cta-wrap, .hero-seats-hint { position: relative; z-index: 3; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 20px; opacity: 0; animation: fadeUp .8s .2s ease forwards; }
+    .hero-badge::before { content: ''; width: 20px; height: .5px; background: var(--gold-dim); }
+    .hero-title { font-family: var(--serif); font-size: clamp(48px, 9vw, 130px); font-weight: 300; line-height: .95; letter-spacing: -.03em; color: var(--text); opacity: 0; animation: fadeUp .9s .35s ease forwards; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-subtitle { font-family: var(--serif); font-size: clamp(18px, 2.8vw, 32px); font-weight: 300; font-style: italic; color: var(--muted2); margin-top: 12px; margin-bottom: 32px; opacity: 0; animation: fadeUp .8s .5s ease forwards; }
+
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 24px 32px; opacity: 0; animation: fadeUp .8s .65s ease forwards; }
+    .hero-meta-label { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .hero-meta-val { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--text); }
+    .hero-meta-val em { font-style: italic; color: var(--gold); }
+
+    .hero-cta-wrap { margin-top: 28px; opacity: 0; animation: fadeUp .8s .8s ease forwards; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .btn-gold { background: var(--gold); color: var(--black); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; padding: 14px 32px; border-radius: 2px; text-decoration: none; transition: background .2s, transform .2s; border: none; cursor: pointer; display: inline-block; }
+    .btn-gold:hover { background: #b8924f; transform: translateY(-2px); }
+    .btn-outline { color: var(--muted2); font-family: var(--mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; padding: 14px 0; text-decoration: none; border-bottom: .5px solid var(--muted); transition: color .2s, border-color .2s; }
+    .btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+    .hero-seats-hint { position: absolute; right: 48px; bottom: 72px; text-align: right; z-index: 3; opacity: 0; animation: fadeIn 1s 1.2s ease forwards; }
+    .seats-left-num { font-family: var(--serif); font-size: 48px; font-weight: 300; font-style: italic; color: var(--gold); line-height: 1; }
+    .seats-left-label { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap { border-top: .5px solid var(--border); border-bottom: .5px solid var(--border); overflow: hidden; padding: 12px 0; background: var(--black2); }
+    .marquee-track { display: flex; animation: marquee 32s linear infinite; white-space: nowrap; }
+    .mi { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); padding: 0 32px; flex-shrink: 0; }
+    .mi span { color: var(--muted); }
+
+    /* ── MONSOON DISCLAIMER ── */
+    .monsoon-banner { background: rgba(192,106,106,0.08); border-top: .5px solid rgba(192,106,106,0.15); border-bottom: .5px solid rgba(192,106,106,0.15); padding: 16px 48px; text-align: center; }
+    .monsoon-note { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: #c9a063; line-height: 1.7; }
+    .monsoon-note strong { color: #ffd9a8; }
+
+    /* ── SECTION SHARED ── */
+    .sec-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .sec-eyebrow::before { content: ''; display: block; width: 22px; height: .5px; background: var(--gold-dim); }
+    .sec-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -.015em; color: var(--text); margin-bottom: 48px; }
+    .sec-title em { font-style: italic; color: var(--gold); }
+
+    /* ── ITINERARY ── */
+    #itinerary { border-top: .5px solid var(--border); }
+    .itin-wrap { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+    .days-timeline { position: relative; padding-left: 44px; }
+    .days-timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: .5px; background: linear-gradient(to bottom, var(--gold-dim), var(--border), transparent); }
+    .day-block { position: relative; margin-bottom: 56px; opacity: 0; transform: translateX(-20px); transition: opacity .7s ease, transform .7s ease; }
+    .day-block.visible { opacity: 1; transform: translateX(0); }
+    .day-dot { position: absolute; left: -40px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--black); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; }
+    .day-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .day-label { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px; }
+    .day-title { font-family: var(--serif); font-size: clamp(22px, 3vw, 40px); font-weight: 300; color: var(--text); margin-bottom: 6px; line-height: 1.2; }
+    .day-title em { font-style: italic; color: var(--gold); }
+    .day-location { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .1em; margin-bottom: 16px; }
+    .act { display: flex; gap: 16px; padding: 12px 0; border-bottom: .5px solid var(--border); align-items: flex-start; }
+    .act:last-child { border-bottom: none; }
+    .act-time { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); min-width: 74px; padding-top: 2px; flex-shrink: 0; }
+    .act-icon { font-size: 15px; min-width: 22px; padding-top: 1px; flex-shrink: 0; }
+    .act-text { font-size: 13px; color: var(--muted2); line-height: 1.7; }
+    .act-text strong { color: var(--text); font-weight: 400; }
+    .meal-tag { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; background: var(--gold-pale); border: .5px solid var(--gold-dim); color: var(--gold); padding: 4px 10px; border-radius: 2px; }
+
+    /* ── TRANSPORT ── */
+    #transport { border-top: .5px solid var(--border); }
+    .transport-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+    .vehicle-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .vehicle-visual { background: var(--black2); border: .5px solid var(--border); border-radius: 4px; padding: 36px 28px 28px; text-align: center; position: relative; overflow: hidden; }
+    .vehicle-visual::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; background: radial-gradient(ellipse, rgba(201,160,99,0.05) 0%, transparent 70%); }
+    .vehicle-name { font-family: var(--serif); font-size: 26px; font-weight: 300; font-style: italic; color: var(--text); margin-top: 14px; margin-bottom: 4px; }
+    .vehicle-sub { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); }
+    .vehicle-features { display: flex; flex-direction: column; gap: 12px; }
+    .vf { display: flex; align-items: flex-start; gap: 14px; padding: 14px; background: var(--black2); border: .5px solid var(--border); border-radius: 3px; transition: border-color .2s; }
+    .vf:hover { border-color: var(--gold-dim); }
+    .vf-icon { font-size: 18px; flex-shrink: 0; }
+    .vf-label { font-size: 13px; color: var(--muted2); line-height: 1.6; }
+    .vf-label strong { color: var(--text); font-weight: 400; display: block; margin-bottom: 2px; }
+
+    #urbV { animation: urbFloat 4s ease-in-out infinite; }
+    @keyframes urbFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .wf, .wr { transform-box: fill-box; transform-origin: center; animation: wSpin 7s linear infinite; }
+    @keyframes wSpin { to { transform: rotate(360deg); } }
+    @keyframes urbGlow { 0%, 100% { opacity: .45; } 50% { opacity: .85; } }
+    #urbGlow { animation: urbGlow 4s ease-in-out infinite; }
+    .hl-urb { animation: urbGlow 3.5s ease-in-out infinite; }
+    @keyframes shineSweep { 0%, 100% { opacity: 0; transform: translateX(-120px); } 45% { opacity: 1; } 55% { opacity: 1; } 90% { opacity: 0; transform: translateX(760px); } }
+    #vShine { animation: shineSweep 9s ease-in-out infinite; pointer-events: none; }
+
+    /* ── SEATS ── */
+    #seats { border-top: .5px solid var(--border); background: var(--black2); }
+    .seats-inner { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+    .seat-map-wrap { background: var(--black3); border: .5px solid var(--border); border-radius: 8px; padding: 36px 24px; position: relative; overflow: hidden; }
+    .seat-map-wrap::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(201,160,99,0.04) 0%, transparent 70%); pointer-events: none; }
+    .urbania-label { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 28px; }
+    .urbania-body { position: relative; max-width: 560px; margin: 0 auto; }
+    .van-outline { width: 100%; background: var(--black4); border: .5px solid var(--border2); border-radius: 12px; padding: 24px 16px; position: relative; }
+    .van-windshield { width: 100%; height: 30px; background: linear-gradient(to bottom, rgba(100,160,255,0.08), transparent); border-bottom: .5px solid var(--border); border-radius: 6px 6px 0 0; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .van-ws-label { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .seat-rows { display: flex; flex-direction: column; gap: 10px; }
+    .seat-row { display: flex; gap: 8px; justify-content: center; align-items: center; }
+    .seat-aisle { width: 20px; flex-shrink: 0; }
+    .seat { width: 48px; height: 48px; border-radius: 6px 6px 3px 3px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; transition: transform .2s, box-shadow .2s; flex-shrink: 0; }
+    .seat:hover { transform: translateY(-3px); }
+    .seat-icon { font-size: 18px; line-height: 1; }
+    .seat-lbl { font-family: var(--mono); font-size: 7px; letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; opacity: .8; }
+    .seat-male { background: rgba(100,160,255,0.18); border: .5px solid rgba(100,160,255,0.35); }
+    .seat-male .seat-lbl { color: rgba(150,195,255,0.7); }
+    .seat-female { background: rgba(255,140,180,0.18); border: .5px solid rgba(255,140,180,0.35); }
+    .seat-female .seat-lbl { color: rgba(255,170,200,0.7); }
+    .seat-special { background: rgba(94,196,122,0.22); border: .5px solid rgba(94,196,122,0.45); animation: seatPulse 3s infinite; }
+    .seat-special .seat-lbl { color: rgba(140,220,160,0.9); }
+    .seat-driver { background: rgba(201,160,99,0.14); border: .5px solid var(--gold-dim); }
+    .seat-driver .seat-lbl { color: var(--gold-dim); }
+    .van-tail { height: 16px; background: linear-gradient(to top, rgba(201,160,99,0.04), transparent); border-top: .5px solid var(--border); border-radius: 0 0 6px 6px; margin-top: 20px; }
+    .seat-legend { display: flex; gap: 16px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+    .sl-item { display: flex; align-items: center; gap: 8px; }
+    .sl-dot { width: 12px; height: 12px; border-radius: 3px; }
+    .sl-blue { background: rgba(100,160,255,0.18); border: .5px solid rgba(100,160,255,0.4); }
+    .sl-pink { background: rgba(255,140,180,0.18); border: .5px solid rgba(255,140,180,0.4); }
+    .sl-green { background: rgba(94,196,122,0.22); border: .5px solid rgba(94,196,122,0.4); }
+    .sl-gold { background: rgba(201,160,99,0.14); border: .5px solid var(--gold-dim); }
+    .sl-label { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted2); }
+    .seats-counter { text-align: center; margin-top: 36px; }
+    .sc-num { font-family: var(--serif); font-size: 64px; font-weight: 300; font-style: italic; color: var(--gold); line-height: 1; }
+    .sc-label { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+    .sc-progress { width: 240px; height: 3px; background: var(--border2); border-radius: 2px; margin: 14px auto 0; }
+    .sc-fill { height: 100%; background: var(--gold); border-radius: 2px; width: 0%; animation: fillBar 1.5s 0.5s ease forwards; }
+    @keyframes fillBar { from { width: 0%; } to { width: 56.25%; } }
+
+    /* ── INCLUSIONS ── */
+    #inclusions { border-top: .5px solid var(--border); }
+    .inc-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+    .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .inc-col-title { font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--text); margin-bottom: 22px; }
+    .inc-col-title em { font-style: italic; }
+    .inc-col-title.excl em { color: #c06a6a; }
+    .inc-list { display: flex; flex-direction: column; }
+    .inc-item { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; border-bottom: .5px solid var(--border); }
+    .inc-item:last-child { border-bottom: none; }
+    .inc-check { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-size: 11px; }
+    .ic-yes { background: rgba(94,196,122,0.15); border: .5px solid rgba(94,196,122,0.3); color: #5ec47a; }
+    .ic-no { background: rgba(192,106,106,0.12); border: .5px solid rgba(192,106,106,0.3); color: #c06a6a; }
+    .inc-text { font-size: 13px; color: var(--muted2); line-height: 1.7; }
+    .inc-text strong { color: var(--text); font-weight: 400; }
+
+    /* ── VIDEOS ── */
+    #videos { border-top: .5px solid var(--border); background: var(--black2); }
+    .vid-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+    .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .vid-card { border-radius: 6px; overflow: hidden; position: relative; aspect-ratio: 9/16; background: var(--black3); border: .5px solid var(--border); cursor: pointer; transition: border-color .3s, transform .3s; }
+    .vid-card:hover { border-color: var(--gold-dim); transform: translateY(-4px); }
+    .vid-thumb { width: 100%; height: 100%; position: relative; overflow: hidden; }
+    .vid-thumb iframe { position: absolute; top: 50%; left: 50%; width: 120%; height: 120%; transform: translate(-50%, -50%); border: 0; pointer-events: none; }
+    .vid-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,6,.88) 0%, rgba(7,7,6,.1) 55%, transparent 100%); pointer-events: none; z-index: 1; }
+    .vid-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 12px 12px; pointer-events: none; z-index: 2; }
+    .vid-title { font-family: var(--serif); font-size: 14px; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
+    .vid-sub { font-family: var(--mono); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: var(--gold-dim); }
+
+    /* ── BOOK / PRICING ── */
+    #book { border-top: .5px solid var(--border); background: var(--black2); position: relative; overflow: hidden; }
+    .book-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(201,160,99,0.08) 0%, transparent 70%); pointer-events: none; }
+    .book-inner { position: relative; max-width: 820px; margin: 0 auto; padding: 100px 48px; text-align: center; }
+    .book-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 18px; }
+    .book-title { font-family: var(--serif); font-size: clamp(36px, 6vw, 80px); font-weight: 300; line-height: 1.05; letter-spacing: -.02em; color: var(--text); margin-bottom: 36px; }
+    .book-title em { font-style: italic; color: var(--gold); }
+    .pricing-wrap { max-width: 500px; margin: 0 auto 36px; display: flex; flex-direction: column; gap: 12px; }
+    .price-card-early { border: 1.5px solid var(--gold); border-radius: 6px; padding: 26px 28px; position: relative; background: rgba(201,160,99,0.05); }
+    .price-card-regular { border: .5px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 16px 28px; background: rgba(255,255,255,0.02); display: flex; justify-content: space-between; align-items: center; }
+    .eb-floating-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--black); font-family: var(--mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; padding: 4px 14px; border-radius: 2px; white-space: nowrap; font-weight: 500; }
+    .eb-tier-label { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 10px; }
+    .eb-price { font-family: var(--serif); font-size: 52px; font-weight: 300; font-style: italic; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .eb-price-sub { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 20px; }
+    .eb-slots-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .eb-slots-txt { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .08em; }
+    .eb-slots-count { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--gold); }
+    .eb-bar-bg { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; margin-bottom: 10px; }
+    .eb-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; width: 0; animation: fillEb 1.4s .4s ease forwards; }
+    @keyframes fillEb { from { width: 0; } to { width: 57%; } }
+    .eb-warning { font-family: var(--mono); font-size: 10px; color: #c06a6a; letter-spacing: .1em; }
+    .reg-left { text-align: left; }
+    .reg-label { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .reg-price { font-family: var(--serif); font-size: 28px; font-weight: 300; font-style: italic; color: var(--muted); text-decoration: line-through; text-decoration-color: #3a3938; }
+    .reg-note { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .08em; text-align: right; max-width: 140px; line-height: 1.6; }
+    .book-actions { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .book-note { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted); margin-top: 8px; line-height: 1.8; }
+
+    /* ── APPLICATION FORM ── */
+    #apply { border-top: .5px solid var(--border); position: relative; overflow: hidden; }
+    .apply-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #07100c 0%, #070706 60%, #060c07 100%); }
+    .apply-glow { position: absolute; top: 30%; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(201,160,99,0.05) 0%, transparent 70%); pointer-events: none; }
+    .apply-inner { position: relative; max-width: 620px; margin: 0 auto; padding: 100px 48px 90px; }
+
+    #ulwf-lb {
+      --g: var(--gold); --gd: var(--gold-dim); --b2: var(--black2); --br2: var(--border2);
+      --t: var(--text); --m: var(--muted); --m2: var(--muted2);
+      --ff: var(--sans); --fm: var(--mono); --fs: var(--serif);
+      font-family: var(--ff); font-weight: 300; color: var(--t); box-sizing: border-box; width: 100%;
+    }
+    .ulwf-hl { font-family: var(--fm); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gd); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+    .ulwf-hl::before { content: ''; display: block; width: 22px; height: .5px; background: var(--gd); }
+    .ulwf-ht { font-family: var(--fs); font-size: clamp(32px, 5vw, 58px); font-weight: 300; color: var(--t); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 10px; }
+    .ulwf-ht em { font-style: italic; color: var(--g); }
+    .ulwf-acc { width: 28px; height: .5px; background: var(--gd); margin: 20px 0 36px; }
+    .ulwf-sec { font-family: var(--fm); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gd); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .ulwf-sec::before { content: ''; display: block; width: 16px; height: .5px; background: var(--gd); }
+    .ulwf-div { height: .5px; background: var(--br2); margin: 28px 0; }
+    .ulwf-fq { margin-bottom: 16px; }
+    .ulwf-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    .ulwf-lbl { display: block; font-size: 13px; font-weight: 400; color: var(--t); margin-bottom: 5px; }
+    .ulwf-hint { font-family: var(--fm); font-size: 10px; color: var(--m); margin-bottom: 8px; line-height: 1.5; letter-spacing: .06em; }
+    #ulwf-lb input[type="text"], #ulwf-lb input[type="email"], #ulwf-lb input[type="number"], #ulwf-lb input[type="tel"] {
+      display: block; width: 100%; background: var(--b2); border: .5px solid var(--br2); border-radius: 3px;
+      padding: 12px 14px; font-family: var(--ff); font-size: 13px; color: var(--t);
+      outline: none; transition: border-color .2s; -webkit-appearance: none; -moz-appearance: textfield;
+    }
+    #ulwf-lb input:focus { border-color: var(--g); }
+    #ulwf-lb input.uerr { border-color: #8a3030 !important; }
+    .ulwf-ph { display: flex; align-items: stretch; }
+    .ulwf-phf { display: flex; align-items: center; padding: 0 12px; background: var(--b2); border: .5px solid var(--br2); border-right: none; border-radius: 3px 0 0 3px; font-family: var(--fm); font-size: 12px; color: var(--m2); white-space: nowrap; flex-shrink: 0; }
+    .ulwf-ph input[type="tel"] { border-radius: 0 3px 3px 0; }
+    .ulwf-opts { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+    .ulwf-opt { background: transparent; border: .5px solid var(--br2); border-radius: 20px; padding: 8px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); user-select: none; line-height: 1.4; transition: background .15s, border-color .15s, color .15s; }
+    .ulwf-opt:hover { border-color: var(--g); color: var(--g); }
+    .ulwf-opt.sel { background: rgba(201,160,99,.1); border-color: var(--g); color: var(--g); }
+    .umulti .ulwf-opt.sel::before { content: '✓ '; font-size: 10px; }
+    .ulwf-sub { display: block; width: 100%; background: var(--g); border: none; border-radius: 2px; padding: 16px; font-family: var(--fm); font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--black); cursor: pointer; margin-top: 28px; transition: background .2s, transform .2s; }
+    .ulwf-sub:hover:not(:disabled) { background: #b8924f; transform: translateY(-2px); }
+    .ulwf-foot { font-family: var(--fm); font-size: 10px; color: var(--m); text-align: center; margin-top: 14px; line-height: 1.8; letter-spacing: .08em; }
+    .ulwf-err-msg { font-family: var(--fm); font-size: 11px; color: #c06060; margin-top: 10px; min-height: 16px; line-height: 1.5; }
+    .ulwf-suc { display: none; text-align: center; padding: 60px 0; }
+    .ulwf-suc-d { font-family: var(--fs); font-size: 52px; font-style: italic; color: var(--g); margin-bottom: 16px; line-height: 1; }
+    .ulwf-suc-t { font-family: var(--fs); font-size: 30px; font-weight: 300; color: var(--t); margin-bottom: 12px; }
+    .ulwf-suc-s { font-size: 14px; color: var(--m2); line-height: 1.9; }
+
+    /* ── FOOTER ── */
+    footer { border-top: .5px solid var(--border); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .foot-logo { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+    .foot-copy { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .08em; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes seatPulse { 0%, 100% { box-shadow: 0 0 8px rgba(94,196,122,.2); } 50% { box-shadow: 0 0 20px rgba(94,196,122,.5); } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .rd1 { transition-delay: .1s; } .rd2 { transition-delay: .2s; } .rd3 { transition-delay: .3s; }
+
+    @media(max-width:900px){
+      nav { padding: 16px 20px; }
+      #hero { padding: 0 20px 60px; }
+      .hero-seats-hint { display: none; }
+      .itin-wrap, .transport-inner, .inc-inner, .vid-inner, .book-inner, .apply-inner, .seats-inner { padding: 60px 20px; }
+      .vehicle-showcase, .inc-grid { grid-template-columns: 1fr; }
+      .vid-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
+    }
+    @media(max-width:540px){
+      #hero { padding: 0 16px 52px; }
+      .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .ulwf-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cur-ring"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">← unlistd life</a>
+    <a href="#apply" class="nav-cta">request an invite</a>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div id="starfield"><div class="milky-way"></div></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-badge">unlistd presents</div>
+    <h1 class="hero-title">Bir · Rajgundha<br><em>· Barot</em></h1>
+    <div class="hero-subtitle">three valleys. two nights. one tribe.</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">departure</div>
+        <div class="hero-meta-val">1<em>st</em> Oct</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">return</div>
+        <div class="hero-meta-val">5<em>th</em> Oct</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">duration</div>
+        <div class="hero-meta-val">2N · 3D</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">starting from</div>
+        <div class="hero-meta-val">₹<em>10,499</em></div>
+      </div>
+    </div>
+    <div class="hero-cta-wrap">
+      <a href="#apply" class="btn-gold">request an invite</a>
+      <a href="#itinerary" class="btn-outline">view itinerary</a>
+    </div>
+    <div class="hero-seats-hint">
+      <div class="seats-left-num">16</div>
+      <div class="seats-left-label">seats total<br>filling fast</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="mi">bir billing <span>—</span></span><span class="mi">rajgundha valley <span>—</span></span><span class="mi">barot <span>—</span></span><span class="mi">1st october 2026 <span>—</span></span><span class="mi">16 seats only <span>—</span></span><span class="mi">force urbania <span>—</span></span><span class="mi">koti kohar waterfall <span>—</span></span><span class="mi">stargazing at 2400m <span>—</span></span><span class="mi">invite only <span>—</span></span><span class="mi">from ₹10,499 <span>—</span></span>
+    </div>
+  </div>
+
+  <!-- MONSOON DISCLAIMER -->
+  <div class="monsoon-banner">
+    <div class="monsoon-note">⚠ <strong>monsoon season notice:</strong> outdoor activities including waterfalls, treks, and adventure activities are subject to real-time weather conditions and government permit/closure approvals. unlistd reserves the right to modify or reschedule activities based on safety and local guidelines.</div>
+  </div>
+
+  <!-- ══ ITINERARY ══ -->
+  <section id="itinerary">
+    <div class="itin-wrap">
+      <div class="sec-eyebrow reveal">the journey</div>
+      <h2 class="sec-title reveal">day by day,<br><em>the unlistd way.</em></h2>
+      <div class="days-timeline">
+
+        <div class="day-block">
+          <div class="day-dot"><div class="day-dot-inner"></div></div>
+          <div class="day-label">Day 0 · Thursday 1st October</div>
+          <h3 class="day-title">Delhi to <em>Bir</em></h3>
+          <div class="day-location">📍 Departure · Delhi</div>
+          <div class="day-activities">
+            <div class="act"><div class="act-time">10:00 PM</div><div class="act-icon">🚌</div><div class="act-text"><strong>Depart from Delhi</strong> — board the Force Urbania, meet your tribe for the first time. Night drive through the mountains begins. Chai stops, music, and the Himalayas getting closer.</div></div>
+          </div>
+        </div>
+
+        <div class="day-block">
+          <div class="day-dot"><div class="day-dot-inner"></div></div>
+          <div class="day-label">Day 1 · Friday 2nd October</div>
+          <h3 class="day-title">Bir · <em>The Arrival</em></h3>
+          <div class="day-location">📍 Bir, Himachal Pradesh · 1,525m</div>
+          <div class="day-activities">
+            <div class="act"><div class="act-time">11:00 AM</div><div class="act-icon">🏔️</div><div class="act-text"><strong>Arrive in Bir</strong> — check in to the property, freshen up, rest. First views of the Dhauladhar range right outside your window.</div></div>
+            <div class="act"><div class="act-time">2:00 PM</div><div class="act-icon">🪂</div><div class="act-text"><strong>Bir local exploration</strong> — the Tibetan colony, the monasteries, the cafes that shouldn't exist in a Himachal village but do.</div></div>
+            <div class="act"><div class="act-time">6:00 PM</div><div class="act-icon">🌅</div><div class="act-text"><strong>Landing site sunset</strong> — Bir Billing is one of the world's top paragliding spots. The landing site at golden hour is something else entirely.</div></div>
+            <div class="act"><div class="act-time">9:00 PM</div><div class="act-icon">🍽️</div><div class="act-text"><strong>Dinner together</strong> — the first real meal as a group. Mountain food, good conversation, the kind of night that sets the tone.</div></div>
+            <div class="act"><div class="act-time">10:00 PM+</div><div class="act-icon">🔥</div><div class="act-text"><strong>Vibe at the property</strong> — the conversations that happen after midnight in the mountains are the ones that matter.</div></div>
+          </div>
+          <div class="meal-tag">🍽 dinner included</div>
+        </div>
+
+        <div class="day-block">
+          <div class="day-dot"><div class="day-dot-inner"></div></div>
+          <div class="day-label">Day 2 · Saturday 3rd October</div>
+          <h3 class="day-title">Rajgundha · <em>The Secret</em></h3>
+          <div class="day-location">📍 Rajgundha Valley, Himachal Pradesh · 2,400m</div>
+          <div class="day-activities">
+            <div class="act"><div class="act-time">07:00 AM</div><div class="act-icon">🪂</div><div class="act-text"><strong>Paragliding</strong> — prices not included, but we have managed to get a vendor at discounted price.</div></div>
+            <div class="act"><div class="act-time">10:00 AM</div><div class="act-icon">🌄</div><div class="act-text"><strong>Checkout from Bir</strong> — pack up, one last look at the valley.</div></div>
+            <div class="act"><div class="act-time">11:00 AM</div><div class="act-icon">💧</div><div class="act-text"><strong>Hidden waterfall trek</strong> — guided trek to a waterfall most visitors to Bir never find. Moderate effort, spectacular reward.</div></div>
+            <div class="act"><div class="act-time">2:00 PM</div><div class="act-icon">🛣️</div><div class="act-text"><strong>Depart to Rajgundha via Billing</strong> — the drive through Billing is one of Himachal's great road trips.</div></div>
+            <div class="act"><div class="act-time">4:00 PM</div><div class="act-icon">🏞️</div><div class="act-text"><strong>Rajgundha riverside chill</strong> — arrive at one of Himachal's most beautiful hidden valleys. The river, the meadows, complete silence.</div></div>
+            <div class="act"><div class="act-time">7:00 PM</div><div class="act-icon">🏕️</div><div class="act-text"><strong>Camping at Rajgundha</strong> — elevation 2,400m. Population: almost nobody. Set up under open sky.</div></div>
+            <div class="act"><div class="act-time">9:00 PM</div><div class="act-icon">🍽️</div><div class="act-text"><strong>Dinner at camp</strong> — hot food under the stars.</div></div>
+            <div class="act"><div class="act-time">10:00 PM</div><div class="act-icon">🔥</div><div class="act-text"><strong>Bonfire</strong> — stories, silences, the sound of the river. No screens, no signal, no rush.</div></div>
+            <div class="act"><div class="act-time">11:00 PM</div><div class="act-icon">⭐</div><div class="act-text"><strong>Stargazing</strong> — at 2,400m with zero light pollution, the Milky Way is directly above you.</div></div>
+          </div>
+          <div class="meal-tag">🍽 breakfast &amp; dinner included</div>
+        </div>
+
+        <div class="day-block">
+          <div class="day-dot"><div class="day-dot-inner"></div></div>
+          <div class="day-label">Day 3 · Sunday 4th October</div>
+          <h3 class="day-title">Barot · <em>The Farewell</em></h3>
+          <div class="day-location">📍 Barot, Uhl River Valley · 1,650m</div>
+          <div class="day-activities">
+            <div class="act"><div class="act-time">10:00 AM</div><div class="act-icon">🌿</div><div class="act-text"><strong>Checkout from camps</strong> — one last morning at altitude.</div></div>
+            <div class="act"><div class="act-time">11:30 AM</div><div class="act-icon">💧</div><div class="act-text"><strong>Koti Kohar Waterfall</strong> — one of Himachal's most underrated natural spots.</div></div>
+            <div class="act"><div class="act-time">2:30 PM</div><div class="act-icon">🏞️</div><div class="act-text"><strong>Reach Barot</strong> — the Uhl river valley, the meadows, the local market.</div></div>
+            <div class="act"><div class="act-time">6:00 PM</div><div class="act-icon">🚌</div><div class="act-text"><strong>Departure from Barot</strong> — the drive back. The kind of silence that happens when a group who met three days ago doesn't want to say goodbye.</div></div>
+          </div>
+          <div class="meal-tag">🍽 breakfast included</div>
+        </div>
+
+        <div class="day-block">
+          <div class="day-dot"><div class="day-dot-inner"></div></div>
+          <div class="day-label">Day 4 · Monday 5th October</div>
+          <h3 class="day-title">Back to <em>Delhi</em></h3>
+          <div class="day-location">📍 Delhi · Home</div>
+          <div class="day-activities">
+            <div class="act"><div class="act-time">6:00 AM</div><div class="act-icon">🌆</div><div class="act-text"><strong>Arrive Delhi</strong> — same city. Different people.</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRANSPORT ══ -->
+  <section id="transport">
+    <div class="transport-inner">
+      <div class="sec-eyebrow reveal">how you'll travel</div>
+      <h2 class="sec-title reveal">the vehicle is part<br>of the <em>experience.</em></h2>
+      <div class="vehicle-showcase">
+        <div class="vehicle-visual reveal reveal-left">
+          <div style="position:relative;">
+            <svg id="urbV" viewBox="0 0 810 295" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;position:relative;z-index:2;">
+              <rect x="72" y="42" width="666" height="180" rx="6" fill="#1b1b18" stroke="#c9a063" stroke-width=".5"/>
+              <rect x="72" y="42" width="44" height="180" rx="6 0 0 6" fill="#0f0f0d"/>
+              <rect x="96" y="42" width="20" height="180" fill="#0f0f0d"/>
+              <rect x="694" y="42" width="44" height="180" rx="0 6 6 0" fill="#131312"/>
+              <rect x="694" y="42" width="22" height="180" fill="#131312"/>
+              <rect x="72" y="42" width="666" height="3" rx="1.5" fill="#c9a063" opacity=".55"/>
+              <rect id="vShine" x="0" y="42" width="60" height="180" rx="3" fill="white" opacity=".06"/>
+              <rect x="79" y="52" width="90" height="88" rx="2" fill="#0c1e2e" stroke="#c9a063" stroke-width=".3"/>
+              <rect x="178" y="52" width="110" height="88" rx="2" fill="#0c1e2e" stroke="#c9a063" stroke-width=".3"/>
+              <rect x="296" y="52" width="110" height="88" rx="2" fill="#0c1e2e" stroke="#c9a063" stroke-width=".3"/>
+              <rect x="414" y="52" width="110" height="88" rx="2" fill="#0c1e2e" stroke="#c9a063" stroke-width=".3"/>
+              <rect x="532" y="52" width="100" height="88" rx="2" fill="#0c1e2e" stroke="#c9a063" stroke-width=".3"/>
+              <rect x="644" y="57" width="44" height="76" rx="2" fill="#0c1e2e" stroke="#c9a063" stroke-width=".3" opacity=".7"/>
+              <line x1="116" y1="150" x2="692" y2="150" stroke="#c9a063" stroke-width=".4" opacity=".38"/>
+              <rect x="194" y="170" width="30" height="5" rx="2" fill="#c9a063" opacity=".38"/>
+              <rect x="360" y="170" width="30" height="5" rx="2" fill="#c9a063" opacity=".38"/>
+              <rect x="118" y="217" width="490" height="5" rx="2" fill="#c9a063" opacity=".1" stroke="#c9a063" stroke-width=".25"/>
+              <rect x="75" y="90" width="10" height="26" rx="1" fill="#c9a063" class="hl-urb"/>
+              <line x1="75" y1="84" x2="116" y2="84" stroke="#c9a063" stroke-width="2" class="hl-urb" opacity=".75"/>
+              <rect x="717" y="90" width="11" height="34" rx="1" fill="#c06060" opacity=".8"/>
+              <rect x="717" y="126" width="11" height="13" rx="1" fill="#c9a063" opacity=".5"/>
+              <circle cx="190" cy="222" r="47" fill="#0d0d0b"/>
+              <circle cx="625" cy="222" r="47" fill="#0d0d0b"/>
+              <g class="wf"><circle cx="190" cy="246" r="43" fill="#111110"/><circle cx="190" cy="246" r="34" fill="#1c1c1a" stroke="#c9a063" stroke-width=".5"/><circle cx="190" cy="246" r="10" fill="#1a1a18" stroke="#c9a063" stroke-width=".8"/><circle cx="190" cy="246" r="5" fill="#c9a063" opacity=".6"/></g>
+              <g class="wr"><circle cx="625" cy="246" r="43" fill="#111110"/><circle cx="625" cy="246" r="34" fill="#1c1c1a" stroke="#c9a063" stroke-width=".5"/><circle cx="625" cy="246" r="10" fill="#1a1a18" stroke="#c9a063" stroke-width=".8"/><circle cx="625" cy="246" r="5" fill="#c9a063" opacity=".6"/></g>
+            </svg>
+            <div id="urbGlow" style="height:18px;background:radial-gradient(ellipse,rgba(201,160,99,.45) 0%,transparent 70%);margin:-12px auto 0;width:66%;display:block;"></div>
+          </div>
+          <div class="vehicle-name">Force Urbania</div>
+          <div class="vehicle-sub">exclusive hire · 16 seats · your home on the road</div>
+        </div>
+        <div class="vehicle-features reveal reveal-right">
+          <div class="vf"><div class="vf-icon">🪑</div><div class="vf-label"><strong>16 Captain Seats</strong>Individually reclining, more legroom than most domestic flights.</div></div>
+          <div class="vf rd1"><div class="vf-icon">❄️</div><div class="vf-label"><strong>Full Air Conditioning</strong>The mountain drive is scenic. The van is comfortable. Both can be true.</div></div>
+          <div class="vf rd2"><div class="vf-icon">🔒</div><div class="vf-label"><strong>Exclusive Hire</strong>No sharing with strangers outside your batch. This vehicle is Unlistd's, for the full duration.</div></div>
+          <div class="vf rd3"><div class="vf-icon">🎵</div><div class="vf-label"><strong>Sound System</strong>The playlist is collaborative. The drive is part of the experience.</div></div>
+          <div class="vf rd3"><div class="vf-icon">🗺️</div><div class="vf-label"><strong>Experienced Mountain Driver</strong>Knows the roads. Knows the stops. Knows when to pull over for a view you didn't expect.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEATS ══ -->
+  <section id="seats">
+    <div class="seats-inner">
+      <div class="sec-eyebrow reveal">the tribe</div>
+      <h2 class="sec-title reveal" style="margin-bottom:12px;">16 seats.<br><em>zero strangers</em> by the end.</h2>
+      <p class="reveal" style="font-size:14px;color:var(--muted2);line-height:1.8;max-width:560px;margin-bottom:40px;">we don't fill seats — we build a group. every person in this vehicle was selected. here's how the Urbania looks.</p>
+      <div class="seat-map-wrap reveal">
+        <div class="urbania-label">Force Urbania · Batch 01 · 1 October 2026</div>
+        <div class="urbania-body">
+          <div class="van-outline">
+            <div class="van-windshield"><span class="van-ws-label">— front · driver's cabin —</span></div>
+            <div class="seat-row" style="margin-bottom:8px;">
+              <div class="seat seat-special"><div class="seat-icon">⭐</div><div class="seat-lbl">leader</div></div>
+              <div class="seat-aisle"></div>
+              <div class="seat seat-driver"><div class="seat-icon">🚗</div><div class="seat-lbl" style="color:var(--gold-dim);">driver</div></div>
+            </div>
+            <div style="height:1px;background:var(--border);margin:8px 0 14px;"></div>
+            <div class="seat-rows">
+              <div class="seat-row">
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat-aisle"></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+              </div>
+              <div class="seat-row">
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat-aisle"></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+              </div>
+              <div class="seat-row">
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat-aisle"></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+              </div>
+              <div class="seat-row" style="justify-content:center;gap:14px;margin-top:4px;">
+                <div class="seat seat-male"><div class="seat-icon">👤</div><div class="seat-lbl">m</div></div>
+                <div class="seat seat-special"><div class="seat-icon">🎥</div><div class="seat-lbl">creator</div></div>
+                <div class="seat seat-female"><div class="seat-icon">👤</div><div class="seat-lbl">f</div></div>
+              </div>
+            </div>
+            <div class="van-tail"></div>
+          </div>
+        </div>
+        <div class="seat-legend">
+          <div class="sl-item"><div class="sl-dot sl-blue"></div><div class="sl-label">7 male travelers</div></div>
+          <div class="sl-item"><div class="sl-dot sl-pink"></div><div class="sl-label">7 female travelers</div></div>
+          <div class="sl-item"><div class="sl-dot sl-green"></div><div class="sl-label">content creator · trip leader</div></div>
+          <div class="sl-item"><div class="sl-dot sl-gold"></div><div class="sl-label">driver</div></div>
+        </div>
+        <div class="seats-counter">
+          <div class="sc-num" id="seatCount">16</div>
+          <div class="sc-label">total seats · filling now</div>
+          <div class="sc-progress"><div class="sc-fill"></div></div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--gold-dim);margin-top:8px;letter-spacing:.1em;">9 of 16 seats spoken for</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ INCLUSIONS ══ -->
+  <section id="inclusions">
+    <div class="inc-inner">
+      <div class="sec-eyebrow reveal">what's covered</div>
+      <h2 class="sec-title reveal">no hidden costs.<br><em>no surprises.</em></h2>
+      <div class="inc-grid">
+        <div class="reveal">
+          <div class="inc-col-title">inclusions <em>✓</em></div>
+          <div class="inc-list">
+            <div class="inc-item"><div class="inc-check ic-yes">✓</div><div class="inc-text"><strong>2 nights accommodation</strong> — Bir (night 1) + Rajgundha camping (night 2). Both hand-picked by Unlistd.</div></div>
+            <div class="inc-item"><div class="inc-check ic-yes">✓</div><div class="inc-text"><strong>4 included meals</strong> — dinner night 1 (Bir), breakfast + dinner day 2, breakfast day 3 (Barot).</div></div>
+            <div class="inc-item"><div class="inc-check ic-yes">✓</div><div class="inc-text"><strong>Delhi ↔ Bir ↔ Rajgundha ↔ Barot ↔ Delhi</strong> — full trip travel in Force Urbania, exclusively ours.</div></div>
+            <div class="inc-item"><div class="inc-check ic-yes">✓</div><div class="inc-text"><strong>Trek guide fee</strong> — professional guide for the hidden waterfall trek and Koti Kohar.</div></div>
+            <div class="inc-item"><div class="inc-check ic-yes">✓</div><div class="inc-text"><strong>Trip leader</strong> — Unlistd's own person on the ground. Someone who travels like you do.</div></div>
+          </div>
+        </div>
+        <div class="reveal rd2">
+          <div class="inc-col-title excl">exclusions <em>—</em></div>
+          <div class="inc-list">
+            <div class="inc-item"><div class="inc-check ic-no">✕</div><div class="inc-text"><strong>Trek permit fees</strong> — if required. Typically ₹50–200, paid on site.</div></div>
+            <div class="inc-item"><div class="inc-check ic-no">✕</div><div class="inc-text"><strong>Personal meals outside itinerary</strong> — that momos stall in Bir, the local chai, lunch on the road.</div></div>
+            <div class="inc-item"><div class="inc-check ic-no">✕</div><div class="inc-text"><strong>Optional activities</strong> — paragliding in Bir, river activities in Barot.</div></div>
+            <div class="inc-item"><div class="inc-check ic-no">✕</div><div class="inc-text"><strong>Personal expenses</strong> — shopping, souvenirs, phone data.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BOOK ══ -->
+  <section id="book">
+    <div class="book-glow"></div>
+    <div class="book-inner">
+      <div class="book-eyebrow reveal">secure your seat</div>
+      <h2 class="book-title reveal">1st Oct.<br><em>Bir.</em><br>Are you in?</h2>
+      <div class="pricing-wrap reveal">
+        <div class="price-card-early">
+          <div class="eb-floating-tag">early bird · 7 seats only</div>
+          <div class="eb-tier-label">first 7 seats</div>
+          <div class="eb-price">₹10,499</div>
+          <div class="eb-price-sub">per person · all inclusive · no hidden costs</div>
+          <div class="eb-slots-row"><span class="eb-slots-txt">seats claimed</span><span class="eb-slots-count">3 of 7</span></div>
+          <div class="eb-bar-bg"><div class="eb-bar-fill"></div></div>
+          <div class="eb-warning">⚠ only 3 early bird seats remaining</div>
+        </div>
+        <div class="price-card-regular">
+          <div class="reg-left"><div class="reg-label">regular price</div><div class="reg-price">₹12,499</div></div>
+          <div class="reg-note">after early bird<br>slots are gone</div>
+        </div>
+      </div>
+      <div class="book-actions reveal">
+        <a href="#apply" class="btn-gold">apply below ↓</a>
+      </div>
+      <div class="book-note reveal">
+        we review every request · if it's a fit, we reach out<br>
+        16 total seats · no waitlists for confirmed trips
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ APPLICATION FORM ══ -->
+  <section id="apply">
+    <div class="apply-bg"></div>
+    <div class="apply-glow"></div>
+    <div class="apply-inner">
+      <div id="ulwf-lb">
+        <div id="ulwf-lb-body">
+          <div class="ulwf-hl">the application</div>
+          <div class="ulwf-ht">six questions.<br><em>two minutes.</em></div>
+          <div class="ulwf-acc"></div>
+
+          <div class="ulwf-sec">the basics</div>
+          <div class="ulwf-pair">
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-name">what do we call you?</label>
+              <input type="text" id="ulwf-name" placeholder="first name" autocomplete="given-name">
+            </div>
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-age">how old are you?</label>
+              <input type="number" id="ulwf-age" placeholder="age" min="18" max="99">
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">gender</label>
+            <div class="ulwf-opts usingle" id="ulwf-gender">
+              <div class="ulwf-opt" data-val="male">male</div>
+              <div class="ulwf-opt" data-val="female">female</div>
+              <div class="ulwf-opt" data-val="non-binary">non-binary</div>
+              <div class="ulwf-opt" data-val="prefer not to say">prefer not to say</div>
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl" for="ulwf-work">what do you do?</label>
+            <div class="ulwf-hint">work, side hustle, what keeps you busy</div>
+            <input type="text" id="ulwf-work" placeholder="founder, designer, doctor, professional napper...">
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">what are you into outside of work?</label>
+            <div class="ulwf-hint">pick everything that fits — the more honest, the better</div>
+            <div class="ulwf-opts umulti" id="ulwf-hobbies">
+              <div class="ulwf-opt" data-val="photography">photography</div>
+              <div class="ulwf-opt" data-val="music">music</div>
+              <div class="ulwf-opt" data-val="hiking & outdoors">hiking &amp; outdoors</div>
+              <div class="ulwf-opt" data-val="food & cooking">food &amp; cooking</div>
+              <div class="ulwf-opt" data-val="art & design">art &amp; design</div>
+              <div class="ulwf-opt" data-val="writing">writing</div>
+              <div class="ulwf-opt" data-val="fitness">fitness</div>
+              <div class="ulwf-opt" data-val="gaming">gaming</div>
+              <div class="ulwf-opt" data-val="reading">reading</div>
+              <div class="ulwf-opt" data-val="cinema">cinema</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+          <div class="ulwf-sec">how you travel</div>
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">group trips with strangers?</label>
+            <div class="ulwf-opts usingle" id="ulwf-prior">
+              <div class="ulwf-opt" data-val="yes and loved it">yes and loved it</div>
+              <div class="ulwf-opt" data-val="yes — disaster, trying again">yes — disaster, trying again</div>
+              <div class="ulwf-opt" data-val="no but genuinely ready">no but genuinely ready</div>
+              <div class="ulwf-opt" data-val="solo only — this sounded interesting">solo only — this sounded interesting</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+          <div class="ulwf-sec">one honest thing</div>
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">the date you picked — how locked in are you?</label>
+            <div class="ulwf-hint">be real, it saves us both an awkward call later</div>
+            <div class="ulwf-opts usingle" id="ulwf-date-commitment">
+              <div class="ulwf-opt" data-val="dates blocked, i'm 100% in">dates blocked, i'm 100% in</div>
+              <div class="ulwf-opt" data-val="90% — just need to confirm leave / tickets">90% — just need to confirm leave / tickets</div>
+              <div class="ulwf-opt" data-val="keen, but the date might still shift">keen, but the date might still shift</div>
+              <div class="ulwf-opt" data-val="just exploring for now">just exploring for now</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+          <div class="ulwf-sec">the cost</div>
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">trip cost ₹10,499 — includes everything.</label>
+            <div class="ulwf-opts usingle" id="ulwf-cost-intent">
+              <div class="ulwf-opt" data-val="I'm in, if the crowd is GOATED" style="border-color:rgba(94,196,122,0.3);">I'm in, if the crowd is GOATED 🔥</div>
+              <div class="ulwf-opt" data-val="nahh, too expensive for me" style="border-color:rgba(192,106,106,0.3);">nahh, too expensive for me</div>
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">batch</label>
+            <div class="ulwf-opts usingle" id="ulwf-batch">
+              <div class="ulwf-opt sel" data-val="1 October 2026">1 October 2026 (Bir · Rajgundha · Barot)</div>
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl" for="ulwf-instagram">instagram handle</label>
+            <div class="ulwf-ph">
+              <span class="ulwf-phf">@</span>
+              <input type="text" id="ulwf-instagram" placeholder="yourhandle" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+          <div class="ulwf-pair">
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-whatsapp">whatsapp number</label>
+              <div class="ulwf-ph">
+                <span class="ulwf-phf">🇮🇳 +91</span>
+                <input type="tel" id="ulwf-whatsapp" placeholder="9876543210" maxlength="10" inputmode="numeric">
+              </div>
+            </div>
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-email">your email</label>
+              <input type="email" id="ulwf-email" placeholder="you@example.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="ulwf-err-msg" id="ulwf-err"></div>
+          <button class="ulwf-sub" id="ulwf-btn" type="button">submit my application</button>
+          <div class="ulwf-foot">we read every single one.<br>you'll hear from us within 5 days either way.</div>
+        </div>
+
+        <div class="ulwf-suc" id="ulwf-suc">
+          <div class="ulwf-suc-d">—</div>
+          <div class="ulwf-suc-t">you're on the list.</div>
+          <div class="ulwf-suc-s">we'll read your application and get back to you<br>within 5 days. keep exploring until then.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html" class="foot-logo">unlistd life</a>
+    <div style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--muted2);">Bir · Rajgundha · Barot · October 2026</div>
+    <div class="foot-copy">© 2026 Unlistd · for the ones who find things first</div>
+  </footer>
+
+  <script>
+    /* ── Cursor ── */
+    (function(){
+      var cur = document.getElementById('cur');
+      var ring = document.getElementById('cur-ring');
+      if (cur && ring) {
+        document.addEventListener('mousemove', function(e){
+          cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+          ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, .seat, .vid-card, .ulwf-opt, .ulwf-sub').forEach(function(el){
+          el.addEventListener('mouseenter', function(){ cur.style.width = '14px'; cur.style.height = '14px'; ring.style.width = '48px'; ring.style.height = '48px'; });
+          el.addEventListener('mouseleave', function(){ cur.style.width = '8px'; cur.style.height = '8px'; ring.style.width = '30px'; ring.style.height = '30px'; });
+        });
+      }
+    })();
+
+    /* ── Nav Scroll ── */
+    window.addEventListener('scroll', function(){
+      var nav = document.getElementById('nav');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ── Scroll Reveal ── */
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .day-block').forEach(function(el){ ro.observe(el); });
+
+    /* ── Starfield Canvas ── */
+    (function(){
+      var sf = document.getElementById('starfield');
+      if (!sf) return;
+      for (var i = 0; i < 180; i++){
+        var s = document.createElement('div');
+        s.className = 'star';
+        var sz = Math.random() * 2 + 0.4, gold = Math.random() < 0.12;
+        s.style.cssText = 'left:' + Math.random()*100 + '%;top:' + Math.random()*70 + '%;width:' + sz + 'px;height:' + sz + 'px;background:' + (gold ? '#c9a063' : '#fff') + ';opacity:' + (Math.random()*0.5+0.1) + ';animation-delay:' + Math.random()*6 + 's;animation-duration:' + (2+Math.random()*5) + 's';
+        sf.appendChild(s);
+      }
+      for (var j = 0; j < 3; j++){
+        var ss = document.createElement('div');
+        ss.className = 'shooting-star';
+        ss.style.cssText = 'left:' + (10+Math.random()*40) + '%;top:' + (5+Math.random()*35) + '%;width:' + (80+Math.random()*120) + 'px;animation-delay:' + (j*4+Math.random()*6) + 's;animation-duration:' + (6+Math.random()*5) + 's';
+        sf.appendChild(ss);
+      }
+    })();
+
+    /* ── Seat Counter Animation ── */
+    (function(){
+      var done = false;
+      var obs = new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting && !done){
+          done = true;
+          var el = document.getElementById('seatCount');
+          if (!el) return;
+          var start = null;
+          function step(ts){
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / 1200, 1), ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(16 * ease);
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+      }, { threshold: 0.3 });
+      var el = document.getElementById('seatCount');
+      if (el) obs.observe(el);
+    })();
+
+    /* ── Form Logic ── */
+    (function(){
+      function wireChips(){
+        document.querySelectorAll('#ulwf-lb .ulwf-opt').forEach(function(chip){
+          if (chip._w) return; chip._w = true;
+          function go(e){
+            e.preventDefault(); e.stopPropagation();
+            var box = chip.parentElement; if (!box) return;
+            if (box.classList.contains('usingle')){
+              box.querySelectorAll('.ulwf-opt').forEach(function(c){ c.classList.remove('sel'); });
+              chip.classList.add('sel');
+            } else {
+              chip.classList.toggle('sel');
+            }
+          }
+          chip.addEventListener('touchend', go, { passive: false });
+          chip.addEventListener('click', go, false);
+        });
+      }
+
+      function chips(id){
+        var b = document.getElementById(id); if (!b) return '';
+        return Array.from(b.querySelectorAll('.ulwf-opt.sel')).map(function(c){
+          return (c.dataset.val || c.textContent).trim();
+        }).join(', ');
+      }
+
+      function val(id){
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : '';
+      }
+
+      function wireSubmit(){
+        var btn = document.getElementById('ulwf-btn');
+        var err = document.getElementById('ulwf-err');
+        if (!btn || btn._w) return; btn._w = true;
+
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          if (err) err.textContent = '';
+          document.querySelectorAll('#ulwf-lb input.uerr').forEach(function(i){ i.classList.remove('uerr'); });
+
+          var name = val('ulwf-name');
+          var age = val('ulwf-age');
+          var gender = chips('ulwf-gender');
+          var whatsapp = val('ulwf-whatsapp');
+          var instagram = val('ulwf-instagram');
+          var email = val('ulwf-email');
+          var ok = true;
+          var msgs = [];
+
+          if (!name) { var n = document.getElementById('ulwf-name'); if (n) n.classList.add('uerr'); msgs.push('let us know what to call you.'); ok = false; }
+          if (!age) { var a = document.getElementById('ulwf-age'); if (a) a.classList.add('uerr'); msgs.push('how old are you?'); ok = false; }
+          if (!gender) { msgs.push('please select your gender.'); ok = false; }
+          if (!whatsapp || whatsapp.length < 10) { var w = document.getElementById('ulwf-whatsapp'); if (w) w.classList.add('uerr'); msgs.push('valid 10-digit whatsapp number required.'); ok = false; }
+          if (!instagram) { var ig = document.getElementById('ulwf-instagram'); if (ig) ig.classList.add('uerr'); msgs.push('instagram handle required.'); ok = false; }
+          if (!email || email.indexOf('@') < 1) { var em = document.getElementById('ulwf-email'); if (em) em.classList.add('uerr'); msgs.push('a valid email is required.'); ok = false; }
+
+          if (!ok) {
+            if (err) err.textContent = msgs.join(' · ');
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'submitting···';
+
+          var payload = {
+            submitted_at: new Date().toISOString(),
+            trip: 'Bir · Rajgundha · Barot',
+            name: name,
+            age: age,
+            gender: gender,
+            occupation: val('ulwf-work'),
+            hobbies: chips('ulwf-hobbies'),
+            group_prior: chips('ulwf-prior'),
+            date_commitment: chips('ulwf-date-commitment'),
+            trip_cost_intent: chips('ulwf-cost-intent'),
+            batch_preference: chips('ulwf-batch'),
+            whatsapp: whatsapp,
+            instagram: instagram,
+            email: email
+          };
+
+          try {
+            var existing = JSON.parse(localStorage.getItem('unlistd_applications') || '[]');
+            existing.push(payload);
+            localStorage.setItem('unlistd_applications', JSON.stringify(existing));
+          } catch(e){}
+
+          setTimeout(function(){
+            var body = document.getElementById('ulwf-lb-body');
+            var suc = document.getElementById('ulwf-suc');
+            if (body) body.style.display = 'none';
+            if (suc) suc.style.display = 'block';
+            var wrap = document.getElementById('ulwf-lb');
+            if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 600);
+        });
+      }
+
+      function boot(){ wireChips(); wireSubmit(); }
+      boot();
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+      window.addEventListener('load', boot);
+    })();
+  </script>
+</body>
+</html>

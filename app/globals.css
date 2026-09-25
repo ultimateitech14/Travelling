@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-dm-mono: 'DM Mono', monospace;
+  --font-inter: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080807;
+}
+
+body {
+  background-color: #080807;
+  color: #f5f1e6;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #4e7f68;
+  color: #080807;
+}
+
+/* Custom noise grain overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080807;
+}
+::-webkit-scrollbar-thumb {
+  background: #252420;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4e7f68;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.cursor-custom,
+  body.cursor-custom a,
+  body.cursor-custom button,
+  body.cursor-custom input,
+  body.cursor-custom select,
+  body.cursor-custom textarea {
+    cursor: none !important;
+  }
+}
+
+/* Vehicle & Itinerary animations */
+@keyframes urbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes wSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes urbGlow {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+@keyframes shineSweep {
+  0%, 100% { opacity: 0; transform: translateX(-120px); }
+  45% { opacity: 1; }
+  55% { opacity: 1; }
+  90% { opacity: 0; transform: translateX(760px); }
+}
+@keyframes tagPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+@keyframes seatPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(78, 127, 104, 0.25); }
+  50% { box-shadow: 0 0 20px rgba(78, 127, 104, 0.55); }
+}
+
+.animate-urb-float {
+  animation: urbFloat 4s ease-in-out infinite;
+}
+.animate-wheel-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wSpin 7s linear infinite;
+}
+.animate-urb-glow {
+  animation: urbGlow 3.5s ease-in-out infinite;
+}
+.animate-shine-sweep {
+  animation: shineSweep 9s ease-in-out infinite;
+  pointer-events: none;
+}
+.animate-tag-pulse {
+  animation: tagPulse 2s ease-in-out infinite;
+}
+.animate-seat-pulse {
+  animation: seatPulse 3s infinite;
+}

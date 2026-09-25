@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>We're Hiring: Content Creator, Chandigarh | Unlistd Life</title>
+  <meta name="description" content="Unlistd Life is hiring a content creator / social media manager in Chandigarh — shoot and edit trip content, run @unlistd.life, travel monthly, on-site.">
+  <link rel="icon" href="https://i0.wp.com/unlistd.life/wp-content/uploads/2026/04/cropped-Logo-Unlistd-Fav-Icon.png?fit=32%2C32&ssl=1" sizes="32x32" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-raised: #111110;
+      --bg-sunk: #070706;
+      --line: rgba(255,255,255,.10);
+      --gold: #c9a063;
+      --gold-dim: #7a5e35;
+      --gold-faint: #5a4020;
+      --ink: #e8e4db;
+      --ink-dim: #8a8680;
+      --ink-faint: #4a4740;
+      --green: #5ec47a;
+      --red: #c06060;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      background: var(--bg); color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif; font-weight: 300;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img, svg { max-width: 100%; }
+    a { color: var(--gold-dim); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--gold); }
+    ::selection { background: rgba(201,160,99,.25); color: #fff; }
+
+    @keyframes ulwfcp-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes ulwfcp-scrollrev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @keyframes ulwfcp-twinkle { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }
+    @keyframes ulwfcp-drift { 0% { transform: translate(0,0); } 50% { transform: translate(-14px,9px); } 100% { transform: translate(0,0); } }
+    @keyframes ulwfcp-bob { 0% { transform: translateY(0); } 20% { transform: translateY(-3px); } 40% { transform: translateY(-1px); } 60% { transform: translateY(-4px); } 80% { transform: translateY(-1px); } 100% { transform: translateY(0); } }
+    @keyframes ulwfcp-armtilt { 0% { transform: rotate(0deg); } 20% { transform: rotate(-5deg); } 40% { transform: rotate(2deg); } 60% { transform: rotate(-3deg); } 80% { transform: rotate(1deg); } 100% { transform: rotate(0deg); } }
+    @keyframes ulwfcp-blink { 0%, 100% { opacity: 1; } 50% { opacity: .15; } }
+    @keyframes ulwfcp-flash { 0%, 84%, 100% { opacity: 0; } 90% { opacity: .9; } }
+    @keyframes ulwfcp-clouddrift { 0% { transform: translateX(0); } 25% { transform: translateX(6px); } 50% { transform: translateX(2px); } 75% { transform: translateX(9px); } 100% { transform: translateX(0); } }
+    @keyframes ulwfcp-wave { 0% { stroke-dashoffset: 0; } 33% { stroke-dashoffset: -8; } 66% { stroke-dashoffset: -4; } 100% { stroke-dashoffset: 0; } }
+    @keyframes ulwfcp-palmsway { 0% { transform: rotate(0deg); } 30% { transform: rotate(-1.5deg); } 60% { transform: rotate(1deg); } 100% { transform: rotate(0deg); } }
+
+    .ulwfcp-creator { animation: ulwfcp-bob 2.4s steps(1) infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+    .ulwfcp-arm { animation: ulwfcp-armtilt 2.4s steps(1) infinite; transform-box: fill-box; transform-origin: 100% 0%; }
+    .ulwfcp-rec { animation: ulwfcp-blink 1s steps(1) infinite; }
+    .ulwfcp-flash-el { animation: ulwfcp-flash 3.2s steps(1) infinite; }
+    .ulwfcp-cloud { animation: ulwfcp-clouddrift 14s steps(1) infinite; }
+    .ulwfcp-cloud.c2 { animation-duration: 17s; animation-delay: -4s; }
+    .ulwfcp-cloud.c3 { animation-duration: 11s; animation-delay: -2s; }
+    .ulwfcp-wave-el { animation: ulwfcp-wave 3s steps(1) infinite; }
+    .ulwfcp-palm { animation: ulwfcp-palmsway 5s steps(1) infinite; transform-box: fill-box; transform-origin: 0% 100%; }
+
+    .ulwf-cp-reveal { opacity: 0; transform: translateY(28px); transition: opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1); }
+    .ulwf-cp-reveal.is-in { opacity: 1; transform: none; }
+
+    .ulwf-cp-stars {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .6; animation: ulwfcp-drift 26s ease-in-out infinite;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, rgba(201,160,99,.5) 0, transparent 60%),
+        radial-gradient(1px 1px at 82% 8%, rgba(201,160,99,.35) 0, transparent 60%),
+        radial-gradient(1.5px 1.5px at 40% 62%, rgba(201,160,99,.4) 0, transparent 60%),
+        radial-gradient(1px 1px at 68% 78%, rgba(201,160,99,.3) 0, transparent 60%);
+    }
+
+    .ulwf-cp-band { position: relative; z-index: 2; width: 100%; }
+    .ulwf-cp-band.b-a { background: var(--bg); }
+    .ulwf-cp-band.b-b { background: var(--bg-raised); border-top: .5px solid var(--line); border-bottom: .5px solid var(--line); }
+    .ulwf-cp-band.b-sunk { background: var(--bg-sunk); border-top: .5px solid var(--line); border-bottom: .5px solid var(--line); }
+    .ulwf-cp-band-glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .5;
+      background: radial-gradient(650px 340px at 12% 0%, rgba(201,160,99,.06), transparent 60%),
+                 radial-gradient(650px 340px at 100% 100%, rgba(201,160,99,.05), transparent 60%); }
+
+    .ulwf-cp-nav { position: absolute; z-index: 3; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; max-width: 1200px; margin: 0 auto; }
+    .ulwf-cp-nav .brand { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink); }
+    .ulwf-cp-nav .cta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); border: .5px solid var(--line); border-radius: 20px; padding: 8px 16px; white-space: nowrap; }
+    .ulwf-cp-nav .cta:hover { border-color: var(--gold); color: var(--gold); }
+
+    .ulwf-cp-hero { position: relative; z-index: 2; min-height: 100vh; display: flex; align-items: flex-end; overflow: hidden; }
+    .ulwf-cp-hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .ulwf-cp-hero-bg svg { width: 100%; height: 100%; display: block; }
+    .ulwf-cp-hero-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(90deg, rgba(8,7,8,.92) 0%, rgba(8,7,8,.68) 32%, rgba(8,7,8,.18) 58%, transparent 74%),
+                  linear-gradient(0deg, rgba(8,7,8,.55) 0%, transparent 42%); }
+    .ulwf-cp-hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 120px 28px 56px; width: 100%; }
+    .ulwf-cp-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .ulwf-cp-eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--gold); display: inline-block; flex-shrink: 0; }
+    .ulwf-cp-h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.2; color: var(--ink); margin: 0 0 20px; max-width: 600px; }
+    .ulwf-cp-h1 em { font-style: italic; color: var(--gold); }
+    .ulwf-cp-lede { font-size: 15px; line-height: 1.75; color: var(--ink-dim); max-width: 480px; margin: 0 0 30px; font-weight: 300; }
+    .ulwf-cp-cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .ulwf-cp-btn-gold { background: var(--gold); color: #080807; border-radius: 3px; padding: 15px 30px; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; display: inline-block; }
+    .ulwf-cp-btn-gold:hover { background: #b8924f; color: #080807; }
+    .ulwf-cp-link-line { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; color: var(--ink-dim); border-bottom: .5px solid var(--line); padding-bottom: 2px; }
+    .ulwf-cp-link-line:hover { color: var(--gold); border-color: var(--gold); }
+
+    .ulwf-cp-marquee-wrap { position: relative; z-index: 2; width: 100%; border-top: .5px solid var(--line); border-bottom: .5px solid var(--line); overflow: hidden; background: linear-gradient(90deg, rgba(201,160,99,.03), transparent 30%, transparent 70%, rgba(201,160,99,.03)); }
+    .ulwf-cp-marquee-row { overflow: hidden; white-space: nowrap; width: 100%; }
+    .ulwf-cp-marquee-row.a { padding: 15px 0 6px; }
+    .ulwf-cp-marquee-row.b { padding: 0 0 15px; }
+    .ulwf-cp-marquee-track { display: inline-block; }
+    .ulwf-cp-marquee-row.a .ulwf-cp-marquee-track { animation: ulwfcp-scroll 30s linear infinite; }
+    .ulwf-cp-marquee-row.b .ulwf-cp-marquee-track { animation: ulwfcp-scrollrev 34s linear infinite; }
+    .ulwf-cp-marquee-track span { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); padding: 0 26px; }
+    .ulwf-cp-marquee-track span i { margin-left: 26px; color: var(--ink-faint); font-style: normal; }
+
+    .ulwf-cp-section { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 76px 28px; }
+    .ulwf-cp-kicker { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 14px; }
+    .ulwf-cp-h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(26px, 4vw, 42px); line-height: 1.25; color: var(--ink); max-width: 680px; margin: 0 0 22px; }
+    .ulwf-cp-h2 em { font-style: italic; color: var(--gold); }
+    .ulwf-cp-body-copy { font-size: 15px; line-height: 1.9; color: var(--ink-dim); max-width: 600px; font-weight: 300; }
+    .ulwf-cp-body-copy p { margin: 0 0 16px; }
+
+    .ulwf-cp-divider-wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+    .ulwf-cp-divider { display: flex; align-items: center; gap: 18px; padding: 4px 0; }
+    .ulwf-cp-divider .line { flex: 1; height: .5px; }
+    .ulwf-cp-divider .line.l { background: linear-gradient(90deg, transparent, rgba(255,255,255,.14)); }
+    .ulwf-cp-divider .line.r { background: linear-gradient(90deg, rgba(255,255,255,.14), transparent); }
+    .ulwf-cp-divider svg { animation: ulwfcp-twinkle 4s ease-in-out infinite; flex-shrink: 0; }
+
+    .ulwf-cp-perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: .5px solid var(--line); margin-top: 40px; }
+    .ulwf-cp-perk { background: var(--bg-raised); padding: 28px 24px; }
+    .ulwf-cp-perk-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .ulwf-cp-perk-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); }
+    .ulwf-cp-perk-value { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; font-weight: 400; color: var(--ink); line-height: 1.3; }
+    .ulwf-cp-perk-value em { font-style: italic; color: var(--gold); }
+    .ulwf-cp-perk-note { font-size: 12px; color: var(--ink-faint); margin-top: 10px; line-height: 1.6; }
+
+    .ulwf-cp-fit { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: .5px solid var(--line); margin-top: 40px; }
+    .ulwf-cp-fit-col { background: var(--bg-sunk); padding: 32px 28px; }
+    .ulwf-cp-fit-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; }
+    .ulwf-cp-fit-col.yes .ulwf-cp-fit-title { color: var(--green); }
+    .ulwf-cp-fit-col.no .ulwf-cp-fit-title { color: var(--red); }
+    .ulwf-cp-fit-list { list-style: none; margin: 0; padding: 0; }
+    .ulwf-cp-fit-list li { display: flex; gap: 12px; font-size: 14px; line-height: 1.6; color: var(--ink-dim); padding: 11px 0; border-top: .5px solid var(--line); }
+    .ulwf-cp-fit-list li:first-child { border-top: none; }
+
+    .ulwf-cp-apply-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 76px 28px; }
+    .ulwf-cp-card { max-width: 600px; margin: 0 auto; background: var(--bg); border: .5px solid var(--line); border-radius: 6px; padding: 40px 32px; }
+    .ulwf-cp-card-kicker { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px; }
+    .ulwf-cp-card-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 300; color: var(--ink); line-height: 1.3; }
+    .ulwf-cp-card-title em { font-style: italic; color: var(--gold); }
+    .ulwf-cp-rule { width: 28px; height: 1px; background: var(--gold-dim); margin: 16px 0 28px; }
+    .ulwf-cp-group-kicker { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 12px; }
+    .ulwf-cp-hr { height: .5px; background: var(--line); margin: 22px 0; }
+    .ulwf-cp-field { margin-bottom: 16px; }
+    .ulwf-cp-field label { display: block; font-size: 12px; color: var(--ink); margin-bottom: 5px; }
+    .ulwf-cp-hint { font-family: 'DM Mono', monospace; font-size: 10px; color: #5a5750; margin-bottom: 8px; }
+    .ulwf-cp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .ulwf-cp-input { display: block; width: 100%; background: #141410; border: .5px solid var(--line); border-radius: 3px; padding: 12px 14px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink); outline: none; }
+    .ulwf-cp-input:focus { border-color: var(--gold); }
+    .ulwf-cp-input.ulwf-cp-err { border-color: #8a3030 !important; }
+    .ulwf-cp-input-group { display: flex; align-items: stretch; }
+    .ulwf-cp-input-prefix { display: flex; align-items: center; padding: 0 11px; background: #141410; border: .5px solid var(--line); border-right: none; border-radius: 3px 0 0 3px; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--ink-dim); white-space: nowrap; }
+    .ulwf-cp-input-group .ulwf-cp-input { border-radius: 0 3px 3px 0; min-width: 0; }
+    .ulwf-cp-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ulwf-opt { cursor: pointer; transition: background .15s, border-color .15s, color .15s; background: #141410; border: .5px solid var(--line); border-radius: 20px; padding: 8px 14px; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-dim); line-height: 1.4; user-select: none; }
+    .ulwf-opt:hover { border-color: var(--gold); color: var(--gold); }
+    .ulwf-opt.sel { background: rgba(201,160,99,.12); border-color: var(--gold); color: var(--gold); }
+
+    .ulwf-cp-error { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--red); margin-top: 10px; min-height: 16px; line-height: 1.5; }
+    .ulwf-cp-submit { display: block; width: 100%; background: var(--gold); border: none; border-radius: 3px; padding: 15px; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #080807; cursor: pointer; margin-top: 24px; }
+    .ulwf-cp-submit:hover { background: #b8924f; }
+    .ulwf-cp-fineprint { font-family: 'DM Mono', monospace; font-size: 10px; color: #5a5750; text-align: center; margin-top: 12px; line-height: 1.7; }
+    .ulwf-cp-success { display: none; text-align: center; padding: 48px 0; }
+    .ulwf-cp-success .mark { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-style: italic; color: var(--gold); margin-bottom: 16px; line-height: 1; }
+    .ulwf-cp-success .headline { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--ink); margin-bottom: 10px; }
+    .ulwf-cp-success .sub { font-size: 13px; color: var(--ink-dim); line-height: 1.8; }
+
+    .ulwf-cp-footer { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 48px 28px 40px; text-align: center; }
+    .ulwf-cp-footer .brand { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px; }
+    .ulwf-cp-footer .links { font-size: 12px; color: var(--ink-faint); }
+  </style>
+</head>
+<body>
+
+  <div class="ulwf-cp-stars"></div>
+
+  <!-- NAV -->
+  <nav class="ulwf-cp-nav">
+    <a href="index.html" class="brand">← unlistd life</a>
+    <a href="#apply" class="cta">apply now</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="ulwf-cp-hero">
+    <div class="ulwf-cp-hero-bg">
+      <svg viewBox="0 0 410 320" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="ulwfcp-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#241b30"/>
+            <stop offset="42%" stop-color="#7a4152"/>
+            <stop offset="72%" stop-color="#c97d47"/>
+            <stop offset="100%" stop-color="#e8a862"/>
+          </linearGradient>
+          <radialGradient id="ulwfcp-sun" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff3d9"/>
+            <stop offset="45%" stop-color="#f2b25c"/>
+            <stop offset="100%" stop-color="#e8a355" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="ulwfcp-mtnBack" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#402c3b"/>
+            <stop offset="100%" stop-color="#21151f"/>
+          </linearGradient>
+          <linearGradient id="ulwfcp-mtnFront" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1d1319"/>
+            <stop offset="100%" stop-color="#110a10"/>
+          </linearGradient>
+          <linearGradient id="ulwfcp-sand" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#cf9f68"/>
+            <stop offset="100%" stop-color="#a67c4a"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="0" y="0" width="410" height="320" fill="url(#ulwfcp-sky)"/>
+        <ellipse class="ulwfcp-cloud" cx="90" cy="55" rx="34" ry="9" fill="#f4bd94" opacity=".3"/>
+        <ellipse class="ulwfcp-cloud c2" cx="180" cy="35" rx="26" ry="7" fill="#f4bd94" opacity=".22"/>
+        <circle cx="292" cy="138" r="66" fill="url(#ulwfcp-sun)"/>
+        <circle cx="292" cy="138" r="30" fill="#f6c878"/>
+        <path d="M0,175 L55,115 L95,148 L145,90 L195,138 L235,122 L300,150 L360,104 L410,146 L410,320 L0,320Z" fill="url(#ulwfcp-mtnBack)"/>
+        <path d="M0,222 L65,178 L115,206 L170,158 L215,196 L280,208 L330,206 L410,182 L410,320 L0,320Z" fill="url(#ulwfcp-mtnFront)"/>
+        <path d="M0,252 C90,238 160,266 250,248 C320,234 370,252 410,246 L410,320 L0,320 Z" fill="url(#ulwfcp-sand)"/>
+
+        <!-- Figure -->
+        <g class="ulwfcp-creator">
+          <ellipse cx="270" cy="301" rx="26" ry="4.5" fill="#0a0508" opacity=".35"/>
+          <path d="M279,251 C286,265 288,283 284,300 L275,300 C276,284 274,266 269,252 Z" fill="#150c14" stroke="#f2c98a" stroke-width="1" stroke-opacity=".5"/>
+          <path d="M261,251 C258,266 255,283 256,300 L266,300 C267,284 268,266 271,252 Z" fill="#1b1018" stroke="#f2c98a" stroke-width="1" stroke-opacity=".5"/>
+          <rect x="254" y="242" width="32" height="20" rx="8" fill="#1b1018" stroke="#f2c98a" stroke-width="1" stroke-opacity=".5"/>
+          <path d="M283,203 Q294,220 289,244" fill="none" stroke="#1b1018" stroke-width="11" stroke-linecap="round"/>
+          <path d="M252,196 C252,190 258,186 269,186 C280,186 286,190 286,196 L284,244 L254,244 Z" fill="#1b1018" stroke="#f2c98a" stroke-width="1" stroke-opacity=".5"/>
+          <circle cx="270" cy="172" r="16" fill="#1b1018" stroke="#f2c98a" stroke-width="1" stroke-opacity=".5"/>
+          <g class="ulwfcp-arm">
+            <path d="M256,202 Q236,192 227,166" fill="none" stroke="#1b1018" stroke-width="12" stroke-linecap="round"/>
+            <g transform="translate(220,150) rotate(-18)">
+              <rect x="0" y="0" width="20" height="30" rx="3.5" fill="#150c14" stroke="#f2c98a" stroke-width="1.1" stroke-opacity=".65"/>
+              <rect class="ulwfcp-flash-el" x="2.5" y="3" width="15" height="24" rx="2" fill="#fff3d9"/>
+              <circle class="ulwfcp-rec" cx="16" cy="5.5" r="1.8" fill="#e8a862"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="ulwf-cp-hero-scrim"></div>
+
+    <div class="ulwf-cp-hero-inner">
+      <div class="ulwf-cp-eyebrow ulwf-cp-reveal is-in">we're hiring · chandigarh</div>
+      <h1 class="ulwf-cp-h1 ulwf-cp-reveal is-in">not a 9-to-5. just a camera, 16 strangers, and content that <em>actually goes places.</em></h1>
+      <p class="ulwf-cp-lede ulwf-cp-reveal is-in">run @unlistd.life — shoot the trips, edit the reels, and turn 16 strangers in a van into content the internet can't scroll past.</p>
+      <div class="ulwf-cp-cta-row ulwf-cp-reveal is-in">
+        <a href="#apply" class="ulwf-cp-btn-gold">apply for this role</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- TICKER -->
+  <div class="ulwf-cp-marquee-wrap">
+    <div class="ulwf-cp-marquee-row a">
+      <div class="ulwf-cp-marquee-track">
+        <span>reels<i>&#10022;</i></span><span>trip films<i>&#10022;</i></span><span>bts<i>&#10022;</i></span><span>vlogs<i>&#10022;</i></span><span>carousels<i>&#10022;</i></span><span>brand voice<i>&#10022;</i></span>
+        <span>reels<i>&#10022;</i></span><span>trip films<i>&#10022;</i></span><span>bts<i>&#10022;</i></span><span>vlogs<i>&#10022;</i></span><span>carousels<i>&#10022;</i></span><span>brand voice<i>&#10022;</i></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE ROLE -->
+  <div class="ulwf-cp-band b-a">
+    <div class="ulwf-cp-band-glow"></div>
+    <section class="ulwf-cp-section">
+      <div class="ulwf-cp-kicker ulwf-cp-reveal">the role</div>
+      <h2 class="ulwf-cp-h2 ulwf-cp-reveal">you don't cover unlistd. you <em>are</em> unlistd, camera in hand.</h2>
+      <div class="ulwf-cp-body-copy ulwf-cp-reveal">
+        <p>every batch — 16 strangers, one Force Urbania, a destination nobody's overexposed on Instagram yet — needs someone who shoots it like it actually happened, not staged for the algorithm.</p>
+        <p>that's you. shoot and edit reels and trip films on the road, run the @unlistd.life grid and stories, write captions that sound like us and never like a brochure, and keep the feed moving between batches. some nights that's editing from a hotel room in Barot at 11pm. that's the job.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="ulwf-cp-band b-b">
+    <div class="ulwf-cp-band-glow"></div>
+    <section class="ulwf-cp-section">
+      <div class="ulwf-cp-kicker ulwf-cp-reveal">what you get</div>
+      <h2 class="ulwf-cp-h2 ulwf-cp-reveal" style="max-width:none;">the numbers, upfront.</h2>
+
+      <div class="ulwf-cp-perks ulwf-cp-reveal">
+        <div class="ulwf-cp-perk">
+          <div class="ulwf-cp-perk-top">
+            <span class="ulwf-cp-perk-label">role</span>
+          </div>
+          <div class="ulwf-cp-perk-value">Content Creator /<br>Social Media Manager</div>
+        </div>
+
+        <div class="ulwf-cp-perk">
+          <div class="ulwf-cp-perk-top">
+            <span class="ulwf-cp-perk-label">pay — internship</span>
+          </div>
+          <div class="ulwf-cp-perk-value">up to ₹<em><span class="ulwf-cp-count" data-count="15000">15,000</span>/mo</em></div>
+        </div>
+
+        <div class="ulwf-cp-perk">
+          <div class="ulwf-cp-perk-top">
+            <span class="ulwf-cp-perk-label">pay — full-time</span>
+          </div>
+          <div class="ulwf-cp-perk-value">up to ₹<em><span class="ulwf-cp-count" data-count="25000">25,000</span>/mo</em></div>
+        </div>
+
+        <div class="ulwf-cp-perk">
+          <div class="ulwf-cp-perk-top">
+            <span class="ulwf-cp-perk-label">the actual perk</span>
+          </div>
+          <div class="ulwf-cp-perk-value">a free, fully sponsored<br>trip <em>every month</em></div>
+          <div class="ulwf-cp-perk-note">not a guest seat — you're on it as the travel vlogger, working, shooting, living it.</div>
+        </div>
+
+        <div class="ulwf-cp-perk">
+          <div class="ulwf-cp-perk-top">
+            <span class="ulwf-cp-perk-label">location</span>
+          </div>
+          <div class="ulwf-cp-perk-value">Chandigarh · on-site</div>
+          <div class="ulwf-cp-perk-note">no remote option — not now, not later.</div>
+        </div>
+
+        <div class="ulwf-cp-perk">
+          <div class="ulwf-cp-perk-top">
+            <span class="ulwf-cp-perk-label">age</span>
+          </div>
+          <div class="ulwf-cp-perk-value">20–25 preferred</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- THE FILTER -->
+  <div class="ulwf-cp-band b-a">
+    <div class="ulwf-cp-band-glow"></div>
+    <section class="ulwf-cp-section">
+      <div class="ulwf-cp-kicker ulwf-cp-reveal">the filter</div>
+      <h2 class="ulwf-cp-h2 ulwf-cp-reveal">we curate our trips this hard. figured we'd curate this too.</h2>
+
+      <div class="ulwf-cp-fit ulwf-cp-reveal">
+        <div class="ulwf-cp-fit-col yes">
+          <div class="ulwf-cp-fit-title">this is you if</div>
+          <ul class="ulwf-cp-fit-list">
+            <li><span>✓ you already film everything, invited or not</span></li>
+            <li><span>✓ you know a good hook in the first half-second</span></li>
+            <li><span>✓ you'd rather be on a mountain with a gimbal than at a desk</span></li>
+            <li><span>✓ Chandigarh is home, or could be tomorrow</span></li>
+            <li><span>✓ you can edit fast, on the road, without a full studio setup</span></li>
+          </ul>
+        </div>
+        <div class="ulwf-cp-fit-col no">
+          <div class="ulwf-cp-fit-title">not you if</div>
+          <ul class="ulwf-cp-fit-list">
+            <li><span>✕ you're looking to work from home</span></li>
+            <li><span>✕ you've never posted a reel you were actually proud of</span></li>
+            <li><span>✕ “content creator” is a LinkedIn headline, not a habit</span></li>
+            <li><span>✕ you get camera-shy around strangers</span></li>
+            <li><span>✕ you need a 9-to-5 with fixed hours — trips don't work that way</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- APPLICATION FORM -->
+  <div id="apply" class="ulwf-cp-band b-sunk">
+    <div class="ulwf-cp-band-glow"></div>
+    <div class="ulwf-cp-apply-inner">
+      <div class="ulwf-cp-card ulwf-cp-reveal">
+        <div id="ulwf-form-body">
+          <div class="ulwf-cp-card-kicker">the application</div>
+          <div class="ulwf-cp-card-title">get on our <em>radar.</em></div>
+          <div class="ulwf-cp-rule"></div>
+
+          <div class="ulwf-cp-group-kicker">the basics</div>
+          <div class="ulwf-cp-pair">
+            <div>
+              <label for="ulwf-name">what's your name?</label>
+              <input type="text" id="ulwf-name" placeholder="first name" autocomplete="given-name" class="ulwf-cp-input">
+            </div>
+            <div>
+              <label for="ulwf-age">how old are you?</label>
+              <input type="number" id="ulwf-age" placeholder="age" min="16" max="99" class="ulwf-cp-input">
+            </div>
+          </div>
+
+          <div class="ulwf-cp-field">
+            <label>gender</label>
+            <div class="ulwf-cp-opts ulwf-single" id="ulwf-gender">
+              <div class="ulwf-opt" data-val="male">male</div>
+              <div class="ulwf-opt" data-val="female">female</div>
+              <div class="ulwf-opt" data-val="non-binary">non-binary</div>
+              <div class="ulwf-opt" data-val="prefer not to say">prefer not to say</div>
+            </div>
+          </div>
+
+          <div class="ulwf-cp-field">
+            <label for="ulwf-work">what are you doing right now?</label>
+            <div class="ulwf-cp-hint">student, job, freelance, gap year — tell us</div>
+            <input type="text" id="ulwf-work" placeholder="final-year design student, ex-marketing intern..." class="ulwf-cp-input">
+          </div>
+
+          <div class="ulwf-cp-field">
+            <label>what's your content usually about?</label>
+            <div class="ulwf-cp-opts ulwf-multi" id="ulwf-hobbies">
+              <div class="ulwf-opt" data-val="travel & places">travel &amp; places</div>
+              <div class="ulwf-opt" data-val="food">food</div>
+              <div class="ulwf-opt" data-val="lifestyle & vlogs">lifestyle &amp; vlogs</div>
+              <div class="ulwf-opt" data-val="tech & gadgets">tech &amp; gadgets</div>
+              <div class="ulwf-opt" data-val="fitness">fitness</div>
+              <div class="ulwf-opt" data-val="music">music</div>
+            </div>
+          </div>
+
+          <div class="ulwf-cp-hr"></div>
+          <div class="ulwf-cp-group-kicker">your work</div>
+          <div class="ulwf-cp-field">
+            <label>content creation experience?</label>
+            <div class="ulwf-cp-opts ulwf-single" id="ulwf-prior">
+              <div class="ulwf-opt" data-val="yes, I run my own page">yes, I run my own page</div>
+              <div class="ulwf-opt" data-val="yes, shot for a brand/creator before">yes, shot for a brand/creator before</div>
+              <div class="ulwf-opt" data-val="no experience, but I've got the eye and gear">no experience, but I've got the eye and gear</div>
+            </div>
+          </div>
+
+          <div class="ulwf-cp-hr"></div>
+          <div class="ulwf-cp-group-kicker">the role</div>
+          <div class="ulwf-cp-field">
+            <label>which fits you?</label>
+            <div class="ulwf-cp-opts ulwf-single" id="ulwf-cost-intent">
+              <div class="ulwf-opt" data-val="Internship — up to ₹15k/month">Internship — up to ₹15k/month</div>
+              <div class="ulwf-opt" data-val="Full-time — up to ₹25k/month">Full-time — up to ₹25k/month</div>
+            </div>
+          </div>
+
+          <div class="ulwf-cp-field">
+            <label>Chandigarh, on-site — can you do that?</label>
+            <div class="ulwf-cp-opts ulwf-single" id="ulwf-batch">
+              <div class="ulwf-opt" data-val="yes, I'm based in Chandigarh">yes, I'm based in Chandigarh</div>
+              <div class="ulwf-opt" data-val="yes, I can relocate">yes, I can relocate</div>
+            </div>
+          </div>
+
+          <div class="ulwf-cp-hr"></div>
+          <div class="ulwf-cp-field">
+            <label for="ulwf-instagram">instagram handle</label>
+            <div class="ulwf-cp-input-group">
+              <span class="ulwf-cp-input-prefix">@</span>
+              <input type="text" id="ulwf-instagram" placeholder="yourhandle" autocomplete="off" class="ulwf-cp-input">
+            </div>
+          </div>
+
+          <div class="ulwf-cp-pair">
+            <div>
+              <label for="ulwf-whatsapp">whatsapp number</label>
+              <div class="ulwf-cp-input-group">
+                <span class="ulwf-cp-input-prefix">🇮🇳 +91</span>
+                <input type="tel" id="ulwf-whatsapp" placeholder="9876543210" maxlength="10" inputmode="numeric" class="ulwf-cp-input">
+              </div>
+            </div>
+            <div>
+              <label for="ulwf-email">your email</label>
+              <input type="email" id="ulwf-email" placeholder="you@example.com" autocomplete="email" class="ulwf-cp-input">
+            </div>
+          </div>
+
+          <div id="ulwf-global-error" class="ulwf-cp-error"></div>
+          <button id="ulwf-submit-btn" type="button" class="ulwf-cp-submit">submit my application</button>
+          <div class="ulwf-cp-fineprint">we read every single one.<br>you'll hear from us within 5 days either way.</div>
+        </div>
+
+        <div id="ulwf-success" class="ulwf-cp-success">
+          <div class="mark">—</div>
+          <div class="headline">you're on our radar.</div>
+          <div class="sub">we'll go through it and get back to you<br>within 5 days. keep creating until then.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="ulwf-cp-footer">
+    <div class="brand">unlistd life</div>
+    <div class="links">questions? write to <a href="mailto:info@unlistd.life">info@unlistd.life</a></div>
+  </footer>
+
+  <script>
+    (function(){
+      // Scroll reveal
+      var reveals = document.querySelectorAll('.ulwf-cp-reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(ents){
+          ents.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('is-in'); } });
+        }, { threshold: .12 });
+        reveals.forEach(function(el){ io.observe(el); });
+      }
+
+      // Option chips
+      document.querySelectorAll('.ulwf-opt').forEach(function(chip){
+        chip.addEventListener('click', function(ev){
+          ev.preventDefault();
+          var box = chip.parentElement;
+          if (!box) return;
+          if (box.classList.contains('ulwf-single')){
+            Array.prototype.forEach.call(box.children, function(c){ c.classList && c.classList.remove('sel'); });
+            chip.classList.add('sel');
+          } else {
+            chip.classList.toggle('sel');
+          }
+        });
+      });
+
+      // Submit
+      var btn = document.getElementById('ulwf-submit-btn');
+      var err = document.getElementById('ulwf-global-error');
+
+      function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+      function chipsOf(id){
+        var el = document.getElementById(id);
+        if (!el) return '';
+        return Array.prototype.map.call(el.querySelectorAll('.ulwf-opt.sel'), function(c){
+          return (c.getAttribute('data-val') || c.textContent || '').trim();
+        }).filter(Boolean).join(', ');
+      }
+
+      if (btn) {
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          if (err) err.textContent = '';
+          document.querySelectorAll('.ulwf-cp-input.ulwf-cp-err').forEach(function(i){ i.classList.remove('ulwf-cp-err'); });
+
+          var name = val('ulwf-name'), email = val('ulwf-email'), whatsapp = val('ulwf-whatsapp'), instagram = val('ulwf-instagram');
+          var ok = true, msgs = [];
+
+          if (!name) { var n = document.getElementById('ulwf-name'); if (n) n.classList.add('ulwf-cp-err'); msgs.push('let us know what to call you.'); ok = false; }
+          if (!email || email.indexOf('@') < 0) { var em = document.getElementById('ulwf-email'); if (em) em.classList.add('ulwf-cp-err'); msgs.push('a valid email is required.'); ok = false; }
+          if (!whatsapp || whatsapp.length < 10) { var wp = document.getElementById('ulwf-whatsapp'); if (wp) wp.classList.add('ulwf-cp-err'); msgs.push('valid 10-digit whatsapp required.'); ok = false; }
+          if (!instagram) { var ig = document.getElementById('ulwf-instagram'); if (ig) ig.classList.add('ulwf-cp-err'); msgs.push('instagram handle required.'); ok = false; }
+
+          if (!ok) { if (err) err.textContent = msgs.join(' · '); return; }
+
+          btn.disabled = true;
+          btn.textContent = 'submitting···';
+
+          var payload = {
+            submitted_at: new Date().toISOString(),
+            role: 'Content Creator (Chandigarh)',
+            name: name,
+            age: val('ulwf-age'),
+            gender: chipsOf('ulwf-gender'),
+            current_work: val('ulwf-work'),
+            niche: chipsOf('ulwf-hobbies'),
+            experience: chipsOf('ulwf-prior'),
+            role_type: chipsOf('ulwf-cost-intent'),
+            location_status: chipsOf('ulwf-batch'),
+            instagram: instagram,
+            whatsapp: whatsapp,
+            email: email
+          };
+
+          try {
+            var existing = JSON.parse(localStorage.getItem('unlistd_job_applications') || '[]');
+            existing.push(payload);
+            localStorage.setItem('unlistd_job_applications', JSON.stringify(existing));
+          } catch(e){}
+
+          setTimeout(function(){
+            var b = document.getElementById('ulwf-form-body');
+            var s = document.getElementById('ulwf-success');
+            if (b) b.style.display = 'none';
+            if (s) s.style.display = 'block';
+          }, 600);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

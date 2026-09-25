@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Unlistd Life — India's Invite-Only Offbeat Travel Community</title>
+  <meta name="description" content="Unlistd is India's invite-only offbeat travel community. Small-batch trips to places off the map — apply to join, not everyone gets in.">
+  <link rel="icon" href="https://i0.wp.com/unlistd.life/wp-content/uploads/2026/04/cropped-Logo-Unlistd-Fav-Icon.png?fit=32%2C32&ssl=1" sizes="32x32" />
+
+  <!-- Google Fonts: Cormorant Garamond, DM Mono, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ════════════════════════════════════════════
+       DESIGN TOKENS — brand-locked luxury palette
+    ════════════════════════════════════════════ */
+    :root {
+      --black:     #080807;
+      --black2:    #0e0e0c;
+      --black3:    #141410;
+      --black4:    #1a1a16;
+      --border:    rgba(255, 255, 255, 0.055);
+      --border2:   rgba(255, 255, 255, 0.10);
+      --gold:      #c9a063;
+      --gold-dim:  #7a5e35;
+      --gold-glow: rgba(201, 160, 99, 0.16);
+      --ivory:     #f5f1e6;
+      --text:      #e8e4db;
+      --muted:     #5a5750;
+      --muted2:    #8a8680;
+      --green:     #5ec47a;
+      --red:       #c06060;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --mono:      'DM Mono', monospace;
+      --sans:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:      cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--black);
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      position: relative;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ::selection {
+      background: var(--gold-glow);
+      color: var(--ivory);
+    }
+
+    :focus-visible {
+      outline: 1px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ════════════════════════════════════════════
+       CUSTOM DUAL CURSOR (Mouse/desktop only)
+    ════════════════════════════════════════════ */
+    .cursor, .cursor-ring {
+      display: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      body {
+        cursor: none;
+      }
+      a, button, .ulwf-opt, input, textarea {
+        cursor: none;
+      }
+
+      .cursor {
+        display: block;
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: var(--gold);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.25s, height 0.25s, background-color 0.2s;
+      }
+
+      .cursor-ring {
+        display: block;
+        position: fixed;
+        width: 32px;
+        height: 32px;
+        border: 0.5px solid var(--gold);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.12s ease-out, width 0.25s, height 0.25s, opacity 0.25s;
+        opacity: 0.4;
+      }
+    }
+
+    /* ════════════════════════════════════════════
+       FILM GRAIN OVERLAY
+    ════════════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.028;
+      pointer-events: none;
+      z-index: 9997;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    section, header, footer, nav {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ════════════════════════════════════════════
+       NAV
+    ════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.5px solid transparent;
+      transition: border-color 0.4s, background 0.4s, backdrop-filter 0.4s;
+    }
+
+    nav.scrolled {
+      border-color: var(--border);
+      background: rgba(8, 8, 7, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      text-transform: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-apply {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 9px 20px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      font-weight: 500;
+    }
+
+    .nav-apply:hover {
+      background: #b8924f;
+      transform: translateY(-1px);
+    }
+
+    /* Menu trigger */
+    .menu-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      padding: 6px 2px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      z-index: 200;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .menu-trigger:hover {
+      color: var(--gold);
+    }
+
+    .menu-trigger-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 20px;
+    }
+
+    .menu-trigger-lines span {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: currentColor;
+      transition: transform 0.32s var(--ease), opacity 0.2s, width 0.32s var(--ease);
+    }
+
+    .menu-trigger-lines span:last-child {
+      width: 60%;
+      align-self: flex-end;
+    }
+
+    .menu-trigger.open .menu-trigger-lines span {
+      width: 100%;
+    }
+
+    .menu-trigger.open .menu-trigger-lines span:first-child {
+      transform: translateY(3px) rotate(45deg);
+    }
+
+    .menu-trigger.open .menu-trigger-lines span:last-child {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+
+    /* Mega menu panel */
+    .megamenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 150;
+      background: rgba(8, 8, 7, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border2);
+      padding-top: 84px;
+      max-height: 100vh;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0s linear 0.4s;
+    }
+
+    .megamenu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+    }
+
+    .megamenu-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 48px 72px;
+      display: grid;
+      grid-template-columns: 1.1fr 1.3fr 1fr;
+      gap: 64px;
+    }
+
+    .mm-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 26px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mm-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 0.5px;
+      background: var(--gold-dim);
+    }
+
+    .mm-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+      text-decoration: none;
+      padding: 13px 0;
+      border-bottom: 0.5px solid var(--border);
+      transition: color 0.25s, padding-left 0.25s;
+    }
+
+    .mm-link:first-of-type {
+      padding-top: 0;
+    }
+
+    .mm-link span {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .mm-link:hover {
+      color: var(--gold);
+      padding-left: 8px;
+    }
+
+    .mm-trip {
+      display: block;
+      text-decoration: none;
+      padding: 16px 0;
+      border-bottom: 0.5px solid var(--border);
+      transition: padding-left 0.25s;
+    }
+
+    .mm-trip:first-of-type {
+      padding-top: 0;
+    }
+
+    .mm-trip:hover {
+      padding-left: 8px;
+    }
+
+    .mm-trip-route {
+      width: 60px;
+      height: 20px;
+      margin-bottom: 10px;
+    }
+
+    .mm-trip-route path {
+      fill: none;
+      stroke: var(--gold-dim);
+      stroke-width: 1;
+      stroke-dasharray: 2 5;
+    }
+
+    .mm-trip-route circle {
+      fill: var(--gold);
+    }
+
+    .mm-trip-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 4px;
+      transition: color 0.2s;
+    }
+
+    .mm-trip:hover .mm-trip-name {
+      color: var(--gold);
+    }
+
+    .mm-trip-price {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted2);
+      letter-spacing: 0.04em;
+    }
+
+    .mm-trip-price span {
+      color: var(--muted);
+    }
+
+    .mm-cta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mm-quote {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .mm-quote em {
+      color: var(--gold);
+    }
+
+    .mm-apply {
+      display: inline-block;
+      text-align: center;
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 2px;
+      text-decoration: none;
+      margin-bottom: 20px;
+      width: fit-content;
+      transition: background 0.2s, transform 0.2s;
+      font-weight: 500;
+    }
+
+    .mm-apply:hover {
+      background: #b8924f;
+      transform: translateY(-1px);
+    }
+
+    .mm-note {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .megamenu-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 140;
+      background: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease);
+    }
+
+    .megamenu-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════ */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 150px 24px 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      max-width: 140vw;
+      background: radial-gradient(ellipse at center, rgba(201, 160, 99, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 0.5px;
+      background: linear-gradient(to right, transparent, var(--border2) 20%, var(--border2) 80%, transparent);
+      pointer-events: none;
+    }
+
+    .hero-compass {
+      position: absolute;
+      top: 12%;
+      right: 6%;
+      width: 200px;
+      height: 200px;
+      opacity: 0.5;
+      animation: compassSpin 90s linear infinite;
+    }
+
+    .hero-compass path, .hero-compass circle {
+      stroke: var(--gold-dim);
+    }
+
+    @keyframes compassSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-flight {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-flight .route {
+      fill: none;
+      stroke: var(--gold-dim);
+      stroke-width: 0.6;
+      stroke-dasharray: 1 8;
+      opacity: 0.4;
+    }
+
+    .hero-flight .marker {
+      fill: var(--gold);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s ease forwards;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: dotPulse 2s infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
+
+    .hero-brand {
+      font-family: var(--serif);
+      font-size: clamp(42px, 8vw, 96px);
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.85s 0.28s ease forwards;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(40px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s ease forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-title-line2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s ease forwards;
+    }
+
+    .hero-title-line2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted2);
+      max-width: 480px;
+      margin: 0 auto 44px;
+      line-height: 1.85;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s ease forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s ease forwards;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #b8924f;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      color: var(--muted2);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 0;
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--muted);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .hero-strip {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.95s ease forwards;
+    }
+
+    .hero-strip-item {
+      text-align: center;
+    }
+
+    .hero-strip-val {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-strip-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 1.3s ease forwards;
+    }
+
+    .scroll-line {
+      width: 0.5px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    .scroll-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ════════════════════════════════════════════
+       MARQUEE TICKER
+    ════════════════════════════════════════════ */
+    .marquee-wrap {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      overflow: hidden;
+      padding: 14px 0;
+      background: var(--black2);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      padding: 0 40px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .marquee-item span {
+      color: var(--muted);
+    }
+
+    .marquee-item.hot {
+      color: var(--gold);
+    }
+
+    /* ════════════════════════════════════════════
+       SECTION SCAFFOLDING
+    ════════════════════════════════════════════ */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 0.5px;
+      background: var(--gold-dim);
+    }
+
+    .section-brand-tag {
+      display: inline-block;
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    /* ════════════════════════════════════════════
+       ABOUT
+    ════════════════════════════════════════════ */
+    #about {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    .about-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-body {
+      font-size: 14px;
+      color: var(--muted2);
+      line-height: 1.9;
+    }
+
+    .about-body p {
+      margin-bottom: 16px;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-right {
+      padding-top: 12px;
+    }
+
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .about-stat {
+      background: var(--black2);
+      padding: 26px 22px;
+      transition: background 0.3s;
+    }
+
+    .about-stat:hover {
+      background: var(--black3);
+    }
+
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .about-quote {
+      border-left: 1px solid var(--gold-dim);
+      padding: 16px 0 16px 24px;
+    }
+
+    .about-quote-text {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .about-quote-attr {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ════════════════════════════════════════════
+       PROBLEM
+    ════════════════════════════════════════════ */
+    #problem {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      background: var(--black2);
+      padding: 120px 48px;
+    }
+
+    .problem-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .problem-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 64px;
+      max-width: 640px;
+    }
+
+    .problem-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+    }
+
+    .problem-card {
+      background: var(--black2);
+      padding: 40px 32px;
+      transition: background 0.3s;
+    }
+
+    .problem-card:hover {
+      background: var(--black3);
+    }
+
+    .problem-num {
+      font-family: var(--serif);
+      font-size: 50px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--border2);
+      line-height: 1;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+
+    .problem-card:hover .problem-num {
+      color: var(--gold-dim);
+    }
+
+    .problem-card-title {
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .problem-card-body {
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.8;
+    }
+
+    /* ════════════════════════════════════════════
+       TRIPS — upcoming batches
+    ════════════════════════════════════════════ */
+    #trips {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 120px 48px 100px;
+    }
+
+    .trips-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .trips-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      max-width: 560px;
+    }
+
+    .trips-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .trips-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 260px;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .trip-card {
+      background: var(--black2);
+      border: 0.5px solid var(--border2);
+      border-radius: 4px;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+    }
+
+    .trip-card:hover {
+      border-color: var(--gold-dim);
+      transform: translateY(-4px);
+    }
+
+    .trip-card-top {
+      padding: 28px 26px 0;
+    }
+
+    .trip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 0.5px solid var(--gold-dim);
+      color: var(--gold);
+    }
+
+    .trip-badge.full {
+      border-color: var(--muted);
+      color: var(--muted2);
+    }
+
+    .trip-badge .pulse {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: dotPulse 1.6s infinite;
+    }
+
+    .trip-route-svg {
+      width: 100%;
+      height: 46px;
+      margin-bottom: 18px;
+    }
+
+    .trip-route-svg path {
+      fill: none;
+      stroke: var(--gold-dim);
+      stroke-width: 1;
+      stroke-dasharray: 3 6;
+    }
+
+    .trip-route-svg circle {
+      fill: var(--gold);
+    }
+
+    .trip-route-svg .pin-a {
+      animation: pinBob 3s ease-in-out infinite;
+    }
+
+    .trip-route-svg .pin-b {
+      animation: pinBob 3s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes pinBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .trip-name {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .trip-loc {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 18px;
+    }
+
+    .trip-desc {
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .trip-card-bottom {
+      margin-top: auto;
+      padding: 22px 26px 26px;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .trip-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 18px;
+      gap: 10px;
+    }
+
+    .trip-price-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .trip-price {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .trip-dates {
+      text-align: right;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted2);
+      line-height: 1.7;
+    }
+
+    .trip-cta {
+      display: block;
+      text-align: center;
+      width: 100%;
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 12px;
+      border: 0.5px solid var(--gold-dim);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .trip-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* ════════════════════════════════════════════
+       HOW IT WORKS
+    ════════════════════════════════════════════ */
+    #how {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 48px;
+    }
+
+    .how-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 64px;
+      max-width: 560px;
+    }
+
+    .how-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+      gap: 24px;
+    }
+
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 0.5px;
+      background: linear-gradient(to right, var(--gold-dim), var(--border), var(--gold-dim));
+    }
+
+    .how-step {
+      padding: 0 24px 0 0;
+      position: relative;
+    }
+
+    .how-step-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--black);
+    }
+
+    .how-step-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .how-step-title {
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .how-step-body {
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.8;
+    }
+
+    /* ════════════════════════════════════════════
+       HIRING — teaser banner
+    ════════════════════════════════════════════ */
+    #hiring {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      background: var(--black3);
+      padding: 90px 48px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hiring-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hiring-radar {
+      width: 84px;
+      height: 84px;
+      flex-shrink: 0;
+    }
+
+    .hiring-radar circle.ring {
+      fill: none;
+      stroke: var(--gold-dim);
+      stroke-width: 0.75;
+      opacity: 0.6;
+    }
+
+    .hiring-radar .sweep {
+      transform-origin: 42px 42px;
+      animation: radarSweep 3.5s linear infinite;
+    }
+
+    @keyframes radarSweep {
+      to { transform: rotate(360deg); }
+    }
+
+    .hiring-radar .blip {
+      fill: var(--gold);
+      animation: blipPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes blipPulse {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 1; }
+    }
+
+    .hiring-text-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+
+    .hiring-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .hiring-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hiring-body {
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hiring-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hiring-role-chip {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--muted2);
+      border: 0.5px solid var(--border2);
+      border-radius: 20px;
+      padding: 6px 12px;
+    }
+
+    .hiring-cta {
+      white-space: nowrap;
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      border: 0.5px solid var(--gold);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      justify-self: end;
+    }
+
+    .hiring-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* ════════════════════════════════════════════
+       MANIFESTO
+    ════════════════════════════════════════════ */
+    #manifesto {
+      border-top: 0.5px solid var(--border);
+      background: var(--black2);
+      padding: 120px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #manifesto::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      max-width: 160vw;
+      background: radial-gradient(ellipse at center, rgba(201, 160, 99, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .manifesto-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .manifesto-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 32px;
+    }
+
+    .manifesto-lines {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.5vw, 40px);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text);
+      margin-bottom: 60px;
+    }
+
+    .manifesto-lines em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .manifesto-lines .dim {
+      color: var(--muted);
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      margin-bottom: 64px;
+    }
+
+    .pillar {
+      background: var(--black2);
+      padding: 26px 16px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .pillar:hover {
+      background: var(--black3);
+    }
+
+    .pillar-icon {
+      width: 22px;
+      height: 22px;
+      margin: 0 auto 10px;
+    }
+
+    .pillar-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.1;
+    }
+
+    .pillar-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .pillar-desc {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════
+       APPLY SECTION & WAITLIST FORM
+    ════════════════════════════════════════════ */
+    #apply {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .apply-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.5vw, 50px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .apply-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .apply-body {
+      font-size: 14px;
+      color: var(--muted2);
+      line-height: 1.85;
+      margin-bottom: 36px;
+    }
+
+    .apply-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      border-left: 1px solid var(--gold-dim);
+      padding-left: 16px;
+      line-height: 1.7;
+    }
+
+    #ulwf-hp {
+      --g: var(--gold);
+      --gd: var(--gold-dim);
+      --b2: var(--black3);
+      --br2: var(--border2);
+      --t: var(--text);
+      --m: var(--muted);
+      --m2: var(--muted2);
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--t);
+      box-sizing: border-box;
+      width: 100%;
+      background: var(--black2);
+      border: 0.5px solid var(--border2);
+      border-radius: 6px;
+      padding: 36px;
+    }
+
+    .ulwf-hl {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gd);
+      margin-bottom: 8px;
+    }
+
+    .ulwf-ht {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 300;
+      color: var(--t);
+      line-height: 1.3;
+    }
+
+    .ulwf-ht em {
+      font-style: italic;
+      color: var(--g);
+    }
+
+    .ulwf-acc {
+      width: 28px;
+      height: 1px;
+      background: var(--gd);
+      margin: 16px 0 28px;
+    }
+
+    .ulwf-sec {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gd);
+      margin-bottom: 12px;
+    }
+
+    .ulwf-div {
+      height: 0.5px;
+      background: var(--br2);
+      margin: 22px 0;
+    }
+
+    .ulwf-fq {
+      margin-bottom: 16px;
+    }
+
+    .ulwf-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .ulwf-pair .ulwf-fq {
+      margin-bottom: 0;
+    }
+
+    .ulwf-lbl {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--t);
+      margin-bottom: 5px;
+    }
+
+    .ulwf-hint {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--m);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    #ulwf-hp input[type="text"],
+    #ulwf-hp input[type="email"],
+    #ulwf-hp input[type="number"],
+    #ulwf-hp input[type="tel"] {
+      display: block;
+      width: 100%;
+      background: var(--b2);
+      border: 0.5px solid var(--br2);
+      border-radius: 3px;
+      padding: 11px 14px;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--t);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+    }
+
+    #ulwf-hp input[type="number"]::-webkit-inner-spin-button,
+    #ulwf-hp input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    #ulwf-hp input:focus {
+      border-color: var(--g);
+    }
+
+    #ulwf-hp input::placeholder {
+      color: var(--m);
+    }
+
+    #ulwf-hp input.uerr {
+      border-color: var(--red) !important;
+    }
+
+    .ulwf-ph {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .ulwf-phf {
+      display: flex;
+      align-items: center;
+      padding: 0 11px;
+      background: var(--b2);
+      border: 0.5px solid var(--br2);
+      border-right: none;
+      border-radius: 3px 0 0 3px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--m2);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .ulwf-ph input[type="tel"],
+    .ulwf-ph input[type="text"] {
+      border-radius: 0 3px 3px 0;
+    }
+
+    .ulwf-ph:focus-within .ulwf-phf,
+    .ulwf-ph input:focus {
+      border-color: var(--g);
+    }
+
+    .ulwf-opts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .ulwf-opt {
+      background: var(--b2);
+      border: 0.5px solid var(--br2);
+      border-radius: 20px;
+      padding: 7px 14px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--m2);
+      user-select: none;
+      -webkit-user-select: none;
+      line-height: 1.4;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .ulwf-opt:hover {
+      border-color: var(--g);
+      color: var(--g);
+    }
+
+    .ulwf-opt.sel {
+      background: rgba(201, 160, 99, 0.12);
+      border-color: var(--g);
+      color: var(--g);
+    }
+
+    .umulti .ulwf-opt.sel::before {
+      content: '✓ ';
+      font-size: 10px;
+    }
+
+    .ulwf-opt-yes.sel {
+      background: rgba(94, 196, 122, 0.12);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .ulwf-opt-no.sel {
+      background: rgba(192, 96, 96, 0.12);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .ulwf-sub {
+      display: block;
+      width: 100%;
+      background: var(--g);
+      border: none;
+      border-radius: 3px;
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #080807;
+      margin-top: 24px;
+      transition: background 0.2s, opacity 0.2s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+
+    .ulwf-sub:hover:not(:disabled) {
+      background: #b8924f;
+      transform: translateY(-1px);
+    }
+
+    .ulwf-sub:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .ulwf-foot {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--m);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+
+    .ulwf-policy {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #5a5750;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+
+    .ulwf-policy a {
+      color: #7a766e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+
+    .ulwf-policy a:hover {
+      color: var(--g);
+    }
+
+    .ulwf-err-msg {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--red);
+      margin-top: 10px;
+      min-height: 16px;
+      line-height: 1.5;
+    }
+
+    .ulwf-suc {
+      display: none;
+      text-align: center;
+      padding: 48px 0;
+    }
+
+    .ulwf-suc-d {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-style: italic;
+      color: var(--g);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .ulwf-suc-t {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--t);
+      margin-bottom: 10px;
+    }
+
+    .ulwf-suc-s {
+      font-size: 13px;
+      color: var(--m2);
+      line-height: 1.8;
+    }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    footer {
+      border-top: 0.5px solid var(--border);
+      background: var(--black2);
+      padding: 48px 48px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand-display {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 56px);
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--muted2);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 0.5px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .footer-seo {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-policy {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 0.5px solid var(--border);
+      margin-top: 20px;
+    }
+
+    .footer-policy a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-policy a:hover {
+      color: var(--gold);
+    }
+
+    /* ════════════════════════════════════════════
+       KEYFRAMES & REVEALS
+    ════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ════════════════════════════════════════════ */
+    @media (max-width: 1080px) {
+      #about, #apply { padding: 100px 36px; }
+      #problem, #how, #manifesto, #trips { padding: 100px 36px; }
+      .trip-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 22px; }
+      .megamenu-inner { grid-template-columns: 1fr; gap: 40px; padding: 40px 22px 56px; }
+      .megamenu { padding-top: 72px; }
+      .mm-link { font-size: 24px; }
+      #about, #apply { grid-template-columns: 1fr; gap: 44px; padding: 80px 22px; }
+      #problem, #how, #manifesto, #trips, #hiring { padding: 80px 22px; }
+      .problems-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+      .how-steps::before { display: none; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .about-stat-grid { grid-template-columns: 1fr 1fr; }
+      .trip-grid { grid-template-columns: 1fr; }
+      .trips-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-top { flex-direction: column; gap: 24px; }
+      footer { padding: 40px 22px 26px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      #hero { padding: 130px 20px 90px; }
+      .hiring-inner { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+      .hiring-radar { margin: 0 auto; }
+      .hiring-roles { justify-content: center; }
+      .hiring-cta { justify-self: center; }
+    }
+
+    @media (max-width: 520px) {
+      .ulwf-pair { grid-template-columns: 1fr; }
+      #ulwf-hp { padding: 26px 20px; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn-primary, .hero-actions .btn-ghost { width: 100%; text-align: center; }
+      .hero-strip { gap: 24px; }
+      .pillars { grid-template-columns: 1fr; }
+      .trip-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .trip-dates { text-align: left; }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title, .hero-title-line2, .hero-brand { font-size: 38px; }
+      #hero { padding-top: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor & Trailing Ring -->
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="cur-ring"></div>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-text">Unlistd Life</span>
+    </a>
+    <div class="nav-right">
+      <a href="#apply" class="nav-apply">apply</a>
+      <button class="menu-trigger" id="menuTrigger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="menu-trigger-lines"><span></span><span></span></span>
+        <span class="menu-trigger-label">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════ MEGA MENU ══════════════ -->
+  <div class="megamenu" id="megaMenu">
+    <div class="megamenu-inner">
+
+      <!-- Column 1: Main navigation links -->
+      <div class="mm-col mm-nav">
+        <div class="mm-eyebrow">navigate</div>
+        <a href="#about" class="mm-link">about<span>01</span></a>
+        <a href="#trips" class="mm-link">trips<span>02</span></a>
+        <a href="#how" class="mm-link">how it works<span>03</span></a>
+        <a href="#hiring" class="mm-link">we're hiring<span>04</span></a>
+        <a href="#manifesto" class="mm-link">our values<span>05</span></a>
+      </div>
+
+      <!-- Column 2: Upcoming batches preview -->
+      <div class="mm-col mm-trips">
+        <div class="mm-eyebrow">upcoming batches</div>
+        <a href="bir-rajgundha-barot.html" class="mm-trip">
+          <svg viewBox="0 0 60 24" class="mm-trip-route"><path d="M4 18 Q30 2 56 10"/><circle cx="4" cy="18" r="2.6"/><circle cx="56" cy="10" r="2.6"/></svg>
+          <div class="mm-trip-name">Bir · Rajgundha · Barot</div>
+          <div class="mm-trip-price">from ₹10,499 <span>ex Delhi</span></div>
+        </a>
+        <a href="udaipur-trip.html" class="mm-trip">
+          <svg viewBox="0 0 60 24" class="mm-trip-route"><path d="M4 6 Q30 22 56 14"/><circle cx="4" cy="6" r="2.6"/><circle cx="56" cy="14" r="2.6"/></svg>
+          <div class="mm-trip-name">Udaipur × Jawai</div>
+          <div class="mm-trip-price">from ₹13,000 <span>ex Gurugram</span></div>
+        </a>
+        <a href="zanskar.html" class="mm-trip">
+          <svg viewBox="0 0 60 24" class="mm-trip-route"><path d="M4 16 Q30 2 56 12"/><circle cx="4" cy="16" r="2.6"/><circle cx="56" cy="12" r="2.6"/></svg>
+          <div class="mm-trip-name">Zanskar</div>
+          <div class="mm-trip-price">from ₹9,000 <span>ex Manali</span></div>
+        </a>
+      </div>
+
+      <!-- Column 3: Philosophy & Apply CTA -->
+      <div class="mm-col mm-cta">
+        <div class="mm-quote">"if it's listed somewhere,<br>it's already <em>too late.</em>"</div>
+        <a href="#apply" class="mm-apply">apply to join</a>
+        <div class="mm-note">100% human-read applications.<br>reply within 5 days, either way.</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="megamenu-backdrop" id="megaBackdrop"></div>
+
+  <!-- ══════════════ HERO SECTION ══════════════ -->
+  <section id="hero">
+    <!-- Ambient Animated Flight Path -->
+    <svg class="hero-flight" viewBox="0 0 900 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path id="heroRoute" class="route" d="M -20,420 C 220,300 480,520 940,180" />
+      <circle class="marker" r="3">
+        <animateMotion dur="16s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#heroRoute"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.92;1" dur="16s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+
+    <!-- Navigational Compass -->
+    <svg class="hero-compass" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <circle cx="100" cy="100" r="90" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="70" stroke-width="0.4"/>
+      <path d="M100 20 L108 96 L100 180 L92 96 Z" fill="none" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="3" fill="#c9a063"/>
+    </svg>
+
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>India's invite-only offbeat travel community</div>
+      <div class="hero-brand">Unlistd Life</div>
+      <h1 class="hero-title">the places no one</h1>
+      <div class="hero-title-line2">talks about. <em>yet.</em></div>
+      <p class="hero-sub">not a booking platform. not a travel agency. a curated community of curious people — and itineraries that don't exist anywhere else.</p>
+      
+      <div class="hero-actions">
+        <a href="#apply" class="btn-primary">apply to join</a>
+        <a href="#trips" class="btn-ghost">see upcoming trips</a>
+      </div>
+
+      <div class="hero-strip">
+        <div class="hero-strip-item">
+          <div class="hero-strip-val">small</div>
+          <div class="hero-strip-label">batches always</div>
+        </div>
+        <div class="hero-strip-item">
+          <div class="hero-strip-val">100%</div>
+          <div class="hero-strip-label">human-read applications</div>
+        </div>
+        <div class="hero-strip-item">
+          <div class="hero-strip-val">zero</div>
+          <div class="hero-strip-label">recycled itineraries</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <div class="scroll-label">scroll</div>
+    </div>
+  </section>
+
+  <!-- ══════════════ MARQUEE ══════════════ -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item hot">we're hiring <span>—</span></span>
+      <span class="marquee-item">offbeat india <span>—</span></span>
+      <span class="marquee-item">invite only <span>—</span></span>
+      <span class="marquee-item">curated experiences <span>—</span></span>
+      <span class="marquee-item">quality over profit <span>—</span></span>
+      <span class="marquee-item">small batches <span>—</span></span>
+      <span class="marquee-item">unlistd places <span>—</span></span>
+      <span class="marquee-item">real people <span>—</span></span>
+      <span class="marquee-item">not for everyone <span>—</span></span>
+      <span class="marquee-item hot">we're hiring <span>—</span></span>
+      <span class="marquee-item">offbeat india <span>—</span></span>
+      <span class="marquee-item">invite only <span>—</span></span>
+      <span class="marquee-item">curated experiences <span>—</span></span>
+      <span class="marquee-item">quality over profit <span>—</span></span>
+      <span class="marquee-item">small batches <span>—</span></span>
+      <span class="marquee-item">unlistd places <span>—</span></span>
+      <span class="marquee-item">real people <span>—</span></span>
+      <span class="marquee-item">not for everyone <span>—</span></span>
+    </div>
+  </div>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section id="about">
+    <div class="about-left reveal">
+      <div class="eyebrow">who we are</div>
+      <div class="section-brand-tag">Unlistd Life</div>
+      <h2 class="about-title">built for the ones<br>who go <em>looking.</em></h2>
+      <div class="about-body">
+        <p>Unlistd exists because we got tired of the same Spiti itinerary running on repeat since 2019. The same Kasol route. The same Rishikesh weekend. Copy-pasted, resold, repeated — designed for margins, not memories.</p>
+        <p>We're not a travel agency. We don't have a catalogue. We have a waitlist, a curation process, and a very clear idea of who this is for — the kind of person who asks the chai wala where they go on weekends.</p>
+        <p>Every experience is hand-picked. Every batch is intentional. Every member applied, and we said yes.</p>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="about-stat-grid">
+        <div class="about-stat">
+          <div class="stat-val">small</div>
+          <div class="stat-label">batches, always.<br>by design.</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-val">zero</div>
+          <div class="stat-label">recycled<br>itineraries.</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-val">one</div>
+          <div class="stat-label">filter to join.<br>fit, not funds.</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">applications read<br>by humans.</div>
+        </div>
+      </div>
+      <div class="about-quote">
+        <div class="about-quote-text">"if it's listed somewhere, it's already too late."</div>
+        <div class="about-quote-attr">— the Unlistd philosophy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ THE PROBLEM ══════════════ -->
+  <section id="problem">
+    <div class="problem-inner">
+      <div class="eyebrow reveal">the problem</div>
+      <h2 class="problem-title reveal">the Indian group travel<br>industry has a <em>problem</em><br>nobody talks about.</h2>
+      <div class="problems-grid">
+        <div class="problem-card reveal">
+          <div class="problem-num">01</div>
+          <div class="problem-card-title">same itinerary, every year</div>
+          <div class="problem-card-body">the same Spiti route has been running since 2019. new is harder to sell, so nobody takes the risk. you end up paying for an experience designed for someone else, five years ago.</div>
+        </div>
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-num">02</div>
+          <div class="problem-card-title">can you pay? you're in.</div>
+          <div class="problem-card-body">most group trips have one filter: your bank balance. so you show up and spend four days with 24 strangers who have nothing in common except a bank transfer. the vibe is off. always.</div>
+        </div>
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-num">03</div>
+          <div class="problem-card-title">bigger batches, worse trips</div>
+          <div class="problem-card-body">bigger batches mean better margins. so trips become crowds, crowds become chaos, and the destination gets lost somewhere between matching t-shirts and a WhatsApp group with 40 people in it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ UPCOMING TRIPS ══════════════ -->
+  <section id="trips">
+    <div class="trips-head">
+      <div class="reveal">
+        <div class="eyebrow">october trips</div>
+        <h2 class="trips-title">three trips.<br><em>a few seats each.</em></h2>
+      </div>
+      <div class="trips-note reveal reveal-delay-1">every batch is capped on purpose. once it's full, it's full — no exceptions, no "just one more."</div>
+    </div>
+
+    <div class="trip-grid">
+
+      <!-- Trip 1: Bir · Rajgundha · Barot -->
+      <div class="trip-card reveal">
+        <div class="trip-card-top">
+          <div class="trip-badge"><span class="pulse"></span>batch 01 · 1 october</div>
+          <svg class="trip-route-svg" viewBox="0 0 220 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 Q80 6 206 20"/>
+            <circle class="pin-a" cx="14" cy="34" r="4"/>
+            <circle class="pin-b" cx="206" cy="20" r="4"/>
+          </svg>
+          <div class="trip-name">Bir · Rajgundha · Barot</div>
+          <div class="trip-loc">Himachal Pradesh — 2N/3D</div>
+          <div class="trip-desc">Three valleys, a night under canvas at 2,400 m, and a waterfall most people who come to Bir never find.</div>
+        </div>
+        <div class="trip-card-bottom">
+          <div class="trip-meta">
+            <div>
+              <div class="trip-price-label">ex Delhi, starting from</div>
+              <div class="trip-price">₹10,499</div>
+            </div>
+            <div class="trip-dates">1 – 5 Oct<br>16 seats</div>
+          </div>
+          <a href="bir-rajgundha-barot.html" class="trip-cta">request an invite</a>
+        </div>
+      </div>
+
+      <!-- Trip 2: Udaipur–Jawai -->
+      <div class="trip-card reveal reveal-delay-1">
+        <div class="trip-card-top">
+          <div class="trip-badge"><span class="pulse"></span>batch 01 · 1 october</div>
+          <svg class="trip-route-svg" viewBox="0 0 220 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 18 Q80 40 206 12"/>
+            <circle class="pin-a" cx="14" cy="18" r="4"/>
+            <circle class="pin-b" cx="206" cy="12" r="4"/>
+          </svg>
+          <div class="trip-name">Udaipur × Jawai</div>
+          <div class="trip-loc">Rajasthan — 2N/3D</div>
+          <div class="trip-desc">Two nights of lakes and palaces, then an afternoon in leopard country on the drive home.</div>
+        </div>
+        <div class="trip-card-bottom">
+          <div class="trip-meta">
+            <div>
+              <div class="trip-price-label">ex Gurugram, starting from</div>
+              <div class="trip-price">₹13,000</div>
+            </div>
+            <div class="trip-dates">1 – 5 Oct<br>14 seats</div>
+          </div>
+          <a href="udaipur-trip.html" class="trip-cta">request an invite</a>
+        </div>
+      </div>
+
+      <!-- Trip 3: Zanskar -->
+      <div class="trip-card reveal reveal-delay-2">
+        <div class="trip-card-top">
+          <div class="trip-badge"><span class="pulse"></span>shinkun la · 5,091 m</div>
+          <svg class="trip-route-svg" viewBox="0 0 220 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 24 Q80 4 140 26 T206 12"/>
+            <circle class="pin-a" cx="14" cy="24" r="4"/>
+            <circle class="pin-b" cx="206" cy="12" r="4"/>
+          </svg>
+          <div class="trip-name">Zanskar · the road in</div>
+          <div class="trip-loc">Ladakh — Zanskar · 2N/3D</div>
+          <div class="trip-desc">One 5,091 m pass, a monastery stuck to a cliff, and a night camped under Gonbo Rangjon.</div>
+        </div>
+        <div class="trip-card-bottom">
+          <div class="trip-meta">
+            <div>
+              <div class="trip-price-label">ex Manali, starting from</div>
+              <div class="trip-price">₹9,000</div>
+            </div>
+            <div class="trip-dates">2 – 4 Oct<br>20 spots</div>
+          </div>
+          <a href="zanskar.html" class="trip-cta">request an invite</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ HOW IT WORKS ══════════════ -->
+  <section id="how">
+    <div class="eyebrow reveal">how it works</div>
+    <h2 class="how-title reveal">deliberate by <em>design.</em><br>not by accident.</h2>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step-dot"></div>
+        <div class="how-step-num">step 01</div>
+        <div class="how-step-title">you apply</div>
+        <div class="how-step-body">a short application. no essays, no follower count. we want to know who you are as a traveler, not how impressive your resume is. takes 2 minutes.</div>
+      </div>
+      <div class="how-step reveal reveal-delay-1">
+        <div class="how-step-dot"></div>
+        <div class="how-step-num">step 02</div>
+        <div class="how-step-title">we say yes</div>
+        <div class="how-step-body">every application is read by a human. we look for curiosity, adaptability, and the kind of person who makes a trip better for everyone around them.</div>
+      </div>
+      <div class="how-step reveal reveal-delay-2">
+        <div class="how-step-dot"></div>
+        <div class="how-step-num">step 03</div>
+        <div class="how-step-title">we build your batch</div>
+        <div class="how-step-body">we match you with the right people, not just any available slot. small groups, intentional curation. the right ten people in the right place beats forty strangers on a bus.</div>
+      </div>
+      <div class="how-step reveal reveal-delay-3">
+        <div class="how-step-dot"></div>
+        <div class="how-step-num">step 04</div>
+        <div class="how-step-title">you go somewhere real</div>
+        <div class="how-step-body">an itinerary that doesn't exist in the market. places three pages deep on Google — or not listed at all. experience first. destination second.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ WE'RE HIRING ══════════════ -->
+  <section id="hiring">
+    <div class="hiring-inner">
+      <svg class="hiring-radar" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="ring" cx="42" cy="42" r="38"/>
+        <circle class="ring" cx="42" cy="42" r="26"/>
+        <circle class="ring" cx="42" cy="42" r="14"/>
+        <g class="sweep"><path d="M42 42 L42 4 A38 38 0 0 1 68 16 Z" fill="url(#sweepGrad)"/></g>
+        <circle class="blip" cx="58" cy="24" r="2.5"/>
+        <circle class="blip" cx="24" cy="56" r="2" style="animation-delay:1.1s"/>
+        <defs>
+          <linearGradient id="sweepGrad" x1="42" y1="42" x2="42" y2="4" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#c9a063" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#c9a063" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="reveal">
+        <div class="hiring-text-tag">we're hiring</div>
+        <h3 class="hiring-title">not just building trips.<br>building the <em>team</em> behind them.</h3>
+        <p class="hiring-body">Unlistd is small on purpose — same as our batches. If you'd rather build something real than sit in someone else's process, we want to hear from you.</p>
+        <div class="hiring-roles">
+          <span class="hiring-role-chip">trip design</span>
+          <span class="hiring-role-chip">community</span>
+          <span class="hiring-role-chip">content</span>
+          <span class="hiring-role-chip">operations</span>
+          <span class="hiring-role-chip">partnerships</span>
+        </div>
+      </div>
+      <a href="hiring.html" class="hiring-cta">see open roles</a>
+    </div>
+  </section>
+
+  <!-- ══════════════ VALUES / MANIFESTO ══════════════ -->
+  <section id="manifesto">
+    <div class="manifesto-inner">
+      <div class="manifesto-eyebrow reveal">Unlistd Life · our values</div>
+      <div class="manifesto-lines reveal">
+        we choose <em>experience</em> over places.<br>
+        <span class="dim">people</span> over batch size.<br>
+        <em>quality</em> over profits.<br>
+        <span class="dim">even when it costs us.</span><br><br>
+        <strong style="font-family:var(--serif);font-size:clamp(20px,2.5vw,30px);font-weight:500;color:var(--gold);font-style:italic;">— Unlistd Life</strong>
+      </div>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M4 20 L4 6 L12 3 L20 6 L20 20" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20 L20 20" stroke-linecap="round"/></svg></div>
+          <div class="pillar-name">invite only</div><div class="pillar-desc">we select.<br>you don't just sign up.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 3 C6 9 6 15 12 21 C18 15 18 9 12 3 Z" stroke-linejoin="round"/><circle cx="12" cy="10.5" r="2"/></svg></div>
+          <div class="pillar-name">offbeat</div><div class="pillar-desc">itineraries that<br>don't exist yet.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="2.4"/><circle cx="12" cy="7" r="2.4"/><circle cx="17" cy="12" r="2.4"/></svg></div>
+          <div class="pillar-name">small batches</div><div class="pillar-desc">the right people.<br>the right size.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M4 12 L10 18 L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="pillar-name">experience first</div><div class="pillar-desc">depth over<br>destination ticking.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z" stroke-linejoin="round"/></svg></div>
+          <div class="pillar-name">quality over profit</div><div class="pillar-desc">we'd rather do fewer<br>trips and do them right.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ WAITLIST APPLICATION FORM ══════════════ -->
+  <section id="apply">
+    <div class="apply-left reveal">
+      <div class="eyebrow">join the waitlist</div>
+      <div class="section-brand-tag">Unlistd Life</div>
+      <h2 class="apply-title">this isn't a<br>booking form.<br><em>it's how we find you.</em></h2>
+      <p class="apply-body">we read every application ourselves. no algorithm, no auto-approve. be honest, be yourself. that's literally all we're looking for.</p>
+      <div class="apply-note">
+        we'll get back to you within 5 days either way.<br>
+        no newsletters. no spam. just a yes or a not yet.
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div id="ulwf-hp">
+        <div id="ulwf-hp-body">
+
+          <div class="ulwf-hl">the application</div>
+          <div class="ulwf-ht">six questions.<br><em>two minutes.</em></div>
+          <div class="ulwf-acc"></div>
+
+          <!-- Section: Basics -->
+          <div class="ulwf-sec">the basics</div>
+          <div class="ulwf-pair">
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-name">what do we call you?</label>
+              <input type="text" id="ulwf-name" placeholder="first name" autocomplete="given-name">
+            </div>
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-age">how old are you?</label>
+              <input type="number" id="ulwf-age" placeholder="age" min="18" max="99">
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">gender</label>
+            <div class="ulwf-opts usingle" id="ulwf-gender">
+              <div class="ulwf-opt" data-val="male">male</div>
+              <div class="ulwf-opt" data-val="female">female</div>
+              <div class="ulwf-opt" data-val="non-binary">non-binary</div>
+              <div class="ulwf-opt" data-val="prefer not to say">prefer not to say</div>
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl" for="ulwf-work">what do you do?</label>
+            <div class="ulwf-hint">work, side hustle, what keeps you busy</div>
+            <input type="text" id="ulwf-work" placeholder="founder, designer, doctor, professional napper...">
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">what are you into outside of work?</label>
+            <div class="ulwf-hint">pick everything that fits — the more honest, the better</div>
+            <div class="ulwf-opts umulti" id="ulwf-hobbies">
+              <div class="ulwf-opt" data-val="photography">photography</div>
+              <div class="ulwf-opt" data-val="music">music</div>
+              <div class="ulwf-opt" data-val="hiking & outdoors">hiking &amp; outdoors</div>
+              <div class="ulwf-opt" data-val="food & cooking">food &amp; cooking</div>
+              <div class="ulwf-opt" data-val="art & design">art &amp; design</div>
+              <div class="ulwf-opt" data-val="writing">writing</div>
+              <div class="ulwf-opt" data-val="fitness">fitness</div>
+              <div class="ulwf-opt" data-val="gaming">gaming</div>
+              <div class="ulwf-opt" data-val="reading">reading</div>
+              <div class="ulwf-opt" data-val="cinema">cinema</div>
+              <div class="ulwf-opt" data-val="startups & building">startups &amp; building</div>
+              <div class="ulwf-opt" data-val="none of the above, I just travel">none of the above, I just travel</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+
+          <!-- Section: How You Travel -->
+          <div class="ulwf-sec">how you travel</div>
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">group trips with strangers?</label>
+            <div class="ulwf-opts usingle" id="ulwf-prior">
+              <div class="ulwf-opt" data-val="yes and loved it">yes and loved it</div>
+              <div class="ulwf-opt" data-val="yes — disaster, trying again">yes — disaster, trying again</div>
+              <div class="ulwf-opt" data-val="no but genuinely ready">no but genuinely ready</div>
+              <div class="ulwf-opt" data-val="solo only — this sounded interesting">solo only — this sounded interesting</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+
+          <!-- Section: Travel Personality -->
+          <div class="ulwf-sec">one honest thing</div>
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">as a travel companion, you are...</label>
+            <div class="ulwf-hint">pick the one that's uncomfortably accurate</div>
+            <div class="ulwf-opts usingle" id="ulwf-companion">
+              <div class="ulwf-opt" data-val="the reason we're always 20 min late">the reason we're always 20 min late</div>
+              <div class="ulwf-opt" data-val="finds food before anyone asks">finds food before anyone asks</div>
+              <div class="ulwf-opt" data-val="needs one hour alone or things get weird">needs one hour alone or things get weird</div>
+              <div class="ulwf-opt" data-val="befriends a stranger before trip ends">befriends a stranger before trip ends</div>
+              <div class="ulwf-opt" data-val="says yes, deals with it later">says yes, deals with it later</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+
+          <!-- Section: Trip Selection -->
+          <div class="ulwf-sec">the trip</div>
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">which batch would you like to join?</label>
+            <div class="ulwf-opts usingle" id="ulwf-batch">
+              <div class="ulwf-opt" data-val="Bir x Rajgundha x Barot — from ₹10,499">Bir · Rajgundha · Barot — from ₹10,499</div>
+              <div class="ulwf-opt" data-val="Udaipur x Jawai — from ₹13,000">Udaipur × Jawai — from ₹13,000</div>
+              <div class="ulwf-opt" data-val="Zanskar — from ₹9,000">Zanskar — from ₹9,000</div>
+              <div class="ulwf-opt" data-val="notify me for the next drop">notify me for the next drop</div>
+            </div>
+          </div>
+
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl">trip cost — includes everything.</label>
+            <div class="ulwf-hint">be honest, we can handle it either way</div>
+            <div class="ulwf-opts usingle" id="ulwf-cost-intent">
+              <div class="ulwf-opt ulwf-opt-yes" data-val="I'm in, if the crowd is GOATED">I'm in, if the crowd is GOATED 🔥</div>
+              <div class="ulwf-opt ulwf-opt-no"  data-val="nahh, too expensive for me">nahh, too expensive for me</div>
+            </div>
+          </div>
+
+          <div class="ulwf-div"></div>
+
+          <!-- Section: Contact Details -->
+          <div class="ulwf-fq">
+            <label class="ulwf-lbl" for="ulwf-instagram">instagram handle</label>
+            <div class="ulwf-hint">username or profile URL</div>
+            <div class="ulwf-ph">
+              <span class="ulwf-phf">@</span>
+              <input type="text" id="ulwf-instagram" placeholder="yourhandle" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="ulwf-pair">
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-whatsapp">whatsapp number</label>
+              <div class="ulwf-hint">so we can reach you directly</div>
+              <div class="ulwf-ph">
+                <span class="ulwf-phf">🇮🇳 +91</span>
+                <input type="tel" id="ulwf-whatsapp" placeholder="9876543210" maxlength="10" inputmode="numeric">
+              </div>
+            </div>
+            <div class="ulwf-fq">
+              <label class="ulwf-lbl" for="ulwf-email">your email</label>
+              <div class="ulwf-hint">no newsletters. no spam. just us.</div>
+              <input type="email" id="ulwf-email" placeholder="you@example.com" autocomplete="email" inputmode="email">
+            </div>
+          </div>
+
+          <div class="ulwf-err-msg" id="ulwf-err"></div>
+
+          <button class="ulwf-sub" id="ulwf-btn" type="button">submit my application</button>
+          <div class="ulwf-foot">we read every single one.<br>you'll hear from us within 5 days either way.</div>
+          <div class="ulwf-policy">
+            by applying you agree to our
+            <a href="privacy-policy.html">Privacy Policy</a> ·
+            <a href="terms-of-service.html">Terms of Service</a> ·
+            <a href="refund-cancellation.html">Refund &amp; Cancellation</a>
+          </div>
+
+        </div>
+
+        <!-- Success Screen -->
+        <div class="ulwf-suc" id="ulwf-suc">
+          <div class="ulwf-suc-d">—</div>
+          <div class="ulwf-suc-t">you're on the list.</div>
+          <div class="ulwf-suc-s">we'll read your application and get back to you<br>within 5 days. keep exploring until then.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-display">Unlistd Life</div>
+          <div class="footer-tagline">for the ones who find things first.</div>
+        </div>
+        <div class="footer-links">
+          <a href="#about">about</a>
+          <a href="#trips">trips</a>
+          <a href="#how">how it works</a>
+          <a href="hiring.html">hiring</a>
+          <a href="#apply">apply</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Unlistd Life. all rights reserved.</div>
+        <div class="footer-seo">unlistd life · offbeat travel india · invite-only travel community · curated group travel</div>
+      </div>
+      <div class="footer-policy">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="refund-cancellation.html">Refund &amp; Cancellation</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════ SCRIPTS ══════════════ -->
+  <script>
+    /* ── CURSOR INTERACTION ── */
+    (function(){
+      var cur = document.getElementById('cur');
+      var ring = document.getElementById('cur-ring');
+      if (cur && ring) {
+        document.addEventListener('mousemove', function(e){
+          cur.style.left = e.clientX + 'px';
+          cur.style.top  = e.clientY + 'px';
+          setTimeout(function(){
+            ring.style.left = e.clientX + 'px';
+            ring.style.top  = e.clientY + 'px';
+          }, 50);
+        });
+
+        document.querySelectorAll('a, button, .ulwf-opt, input').forEach(function(el){
+          el.addEventListener('mouseenter', function(){
+            cur.style.width = '14px';
+            cur.style.height = '14px';
+            ring.style.width = '44px';
+            ring.style.height = '44px';
+            ring.style.opacity = '0.7';
+          });
+          el.addEventListener('mouseleave', function(){
+            cur.style.width = '8px';
+            cur.style.height = '8px';
+            ring.style.width = '32px';
+            ring.style.height = '32px';
+            ring.style.opacity = '0.4';
+          });
+        });
+      }
+    })();
+
+    /* ── NAVBAR SCROLL BLUR ── */
+    window.addEventListener('scroll', function(){
+      var nav = document.getElementById('nav');
+      if (nav) {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }
+    });
+
+    /* ── MEGA MENU TOGGLE ── */
+    (function(){
+      var trigger  = document.getElementById('menuTrigger');
+      var mega     = document.getElementById('megaMenu');
+      var megaBack = document.getElementById('megaBackdrop');
+
+      function closeMega(){
+        if (!trigger || !mega) return;
+        trigger.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+        mega.classList.remove('open');
+        if (megaBack) megaBack.classList.remove('open');
+      }
+
+      function openMega(){
+        if (!trigger || !mega) return;
+        trigger.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+        mega.classList.add('open');
+        if (megaBack) megaBack.classList.add('open');
+      }
+
+      if (trigger && mega) {
+        trigger.addEventListener('click', function(){
+          mega.classList.contains('open') ? closeMega() : openMega();
+        });
+        mega.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', closeMega);
+        });
+        if (megaBack) megaBack.addEventListener('click', closeMega);
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape') closeMega();
+        });
+      }
+    })();
+
+    /* ── SCROLL REVEAL OBSERVER ── */
+    (function(){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(function(el){
+        observer.observe(el);
+      });
+    })();
+
+    /* ── SMOOTH SCROLL FOR HASH LINKS ── */
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var href = this.getAttribute('href');
+        if (href.length < 2) return;
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ── WAITLIST FORM LOGIC & LOCAL PERSISTENCE ── */
+    (function(){
+      function wireChips(){
+        document.querySelectorAll('#ulwf-hp .ulwf-opt').forEach(function(chip){
+          if (chip._wired) return;
+          chip._wired = true;
+
+          function doToggle(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var box = chip.parentElement;
+            if (!box) return;
+            if (box.classList.contains('usingle')){
+              box.querySelectorAll('.ulwf-opt').forEach(function(c){ c.classList.remove('sel'); });
+              chip.classList.add('sel');
+            } else {
+              chip.classList.toggle('sel');
+            }
+          }
+          chip.addEventListener('touchend', doToggle, {passive: false});
+          chip.addEventListener('click', doToggle, false);
+        });
+      }
+
+      function getChips(id){
+        var box = document.getElementById(id);
+        if (!box) return '';
+        return Array.from(box.querySelectorAll('.ulwf-opt.sel')).map(function(c){
+          return (c.dataset.val || c.textContent).trim();
+        }).join(', ');
+      }
+
+      function val(id){
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : '';
+      }
+
+      function wireSubmit(){
+        var btn = document.getElementById('ulwf-btn');
+        var err = document.getElementById('ulwf-err');
+        if (!btn || btn._wired) return;
+        btn._wired = true;
+
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          if (err) err.textContent = '';
+          document.querySelectorAll('#ulwf-hp input.uerr').forEach(function(i){
+            i.classList.remove('uerr');
+          });
+
+          var name      = val('ulwf-name');
+          var email     = val('ulwf-email');
+          var whatsapp  = val('ulwf-whatsapp');
+          var instagram = val('ulwf-instagram');
+          var ok        = true;
+          var msgs      = [];
+
+          if (!name) {
+            var n = document.getElementById('ulwf-name');
+            if (n) n.classList.add('uerr');
+            msgs.push('let us know what to call you.');
+            ok = false;
+          }
+          if (!email || email.indexOf('@') < 1) {
+            var e2 = document.getElementById('ulwf-email');
+            if (e2) e2.classList.add('uerr');
+            msgs.push('a valid email is required.');
+            ok = false;
+          }
+          if (!whatsapp || whatsapp.length < 10) {
+            var w = document.getElementById('ulwf-whatsapp');
+            if (w) w.classList.add('uerr');
+            msgs.push('valid 10-digit whatsapp number required.');
+            ok = false;
+          }
+          if (!instagram) {
+            var ig = document.getElementById('ulwf-instagram');
+            if (ig) ig.classList.add('uerr');
+            msgs.push('instagram handle required.');
+            ok = false;
+          }
+
+          if (!ok) {
+            if (err) err.textContent = msgs.join(' · ');
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'submitting···';
+
+          var payload = {
+            submitted_at:     new Date().toISOString(),
+            name:             name,
+            age:              val('ulwf-age'),
+            gender:           getChips('ulwf-gender'),
+            occupation:       val('ulwf-work'),
+            hobbies:          getChips('ulwf-hobbies'),
+            group_prior:      getChips('ulwf-prior'),
+            companion:        getChips('ulwf-companion'),
+            batch_preference: getChips('ulwf-batch'),
+            trip_cost_intent: getChips('ulwf-cost-intent'),
+            instagram:        instagram,
+            whatsapp:         whatsapp,
+            email:            email
+          };
+
+          // Save application to localStorage
+          try {
+            var existing = JSON.parse(localStorage.getItem('unlistd_applications') || '[]');
+            existing.push(payload);
+            localStorage.setItem('unlistd_applications', JSON.stringify(existing));
+          } catch(e) {
+            console.error('Storage error:', e);
+          }
+
+          // Simulate network turnaround for natural luxury feel
+          setTimeout(function(){
+            var body = document.getElementById('ulwf-hp-body');
+            var suc = document.getElementById('ulwf-suc');
+            if (body) body.style.display = 'none';
+            if (suc)  suc.style.display = 'block';
+            var wrap = document.getElementById('ulwf-hp');
+            if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 600);
+        });
+      }
+
+      function boot(){
+        wireChips();
+        wireSubmit();
+      }
+
+      boot();
+      if (document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', boot);
+      }
+      window.addEventListener('load', boot);
+    })();
+  </script>
+</body>
+</html>
