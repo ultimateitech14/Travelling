@@ -244,7 +244,7 @@ export default function BirItineraryPage() {
           <div className="flex flex-wrap items-center gap-6 md:gap-10 pb-8 border-b border-brandBorder-light font-mono text-xs text-brandMuted">
             <div>
               <span className="block text-[9px] uppercase tracking-[0.16em] text-brandMuted-dark mb-1">dates</span>
-              <span className="font-serif text-xl text-ivory">17 Oct - 19 Oct, 2026</span>
+              <span className="font-serif text-xl text-ivory">16 Oct - 20 Oct, 2026</span>
             </div>
             <div>
               <span className="block text-[9px] uppercase tracking-[0.16em] text-brandMuted-dark mb-1">duration</span>

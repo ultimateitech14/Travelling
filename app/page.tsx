@@ -27,7 +27,7 @@ export default function HomePage() {
       duration: '3D / 2N',
       seats: '16 Seats',
       price: '₹9,999',
-      dates: '17 Oct - 19 Oct, 2026',
+      dates: '16 Oct - 20 Oct, 2026',
       badge: 'Bestseller',
       isOpen: true,
       description: 'Hike through 360° oak forests, sleep under 10,000 stars in Rajgundha valley, and cross the remote Uhl river in Barot.',
